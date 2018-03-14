@@ -181,9 +181,8 @@
             <svg class = "Map"></svg>
  
         </div>
-</div>    
+        </div>    
         <div class="footer">
-    
         <div class = "row">
         
             <div class = "columnFooter"></div>
@@ -199,8 +198,33 @@
 
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script>
-        
-            //d3.select("body").select("h1").transition().duration(2000).delay(1000).ease(d3.easeLinear).text("What if you were shit")
+            
+            d3.json("world_countries.json", function(topology){
+                
+                d3.csv("codes.csv", function (codes){
+                    
+                    for (i =0; i<topology.features.length; i++){
+                    
+                        var countryName = topology.features[i].id;  
+                        for (j = 0; j<codes.length; j++){
+                        
+                            if (codes[j].alpha3 == countryName){
+                                var code = codes[j].alpha2;
+                                topology.features[i].id = code;
+                            }
+                        }
+                    }
+                    
+                    //topology.features[176].id = "1";
+                    //console.log(topology.features)    
+                })
+                  
+                console.log(topology.features);
+            
+            
+            
+            
+            });
             
         </script>
         
