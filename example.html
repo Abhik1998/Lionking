@@ -182,7 +182,7 @@ svg.call(tip);
 
 queue()
     .defer(d3.json, "world_countries.json")
-    .defer(d3.csv, "world_population.csv")
+    .defer(d3.csv, "TigerBones.csv")
     .await(ready);
 
 function ready(error, data, population) {
