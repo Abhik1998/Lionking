@@ -12,14 +12,14 @@
             /* Create three columns that floats next to each other */
             .columnAnimal {
                 float: left;
-                width: 15%;
+                width: 10%;
                 padding: 10px;
-                padding-left: 10px;
+                padding-left: 0px;
             }
 
             .columnParts {
                 float: left;
-                width: 30%;
+                width: 35%;
                 padding: 10px;
                 padding-left: 20px;
             }
@@ -35,7 +35,7 @@
                 float: left;
                 width: 33.33%;
                 padding: 10px;
-                padding-left: 10px;
+                padding-left: 0px;
             }
 
             /* Clear floats after the columns */
@@ -73,7 +73,7 @@
 
             .Animal {
                 padding-bottom: 20px;
-                padding-left: 19%;
+                padding-left: 10%;
             }
 
             img {
@@ -187,7 +187,45 @@
                 top: 50%;
                 left: 100%;
             }
+            
+            /* For annotations and other elements - Annotations for human parts */
+            .annotation path {
+              stroke: #E8336D;
+              fill: none;
+            }
 
+            .annotation path.connector-arrow, 
+            .title text, .annotation text,
+            .annotation.callout.circle .annotation-subject path{
+              fill: #E8336D;
+              font-size: 10px;    
+            }
+            .annotation-note-bg {
+              fill: rgba(255, 255, 255, 0);
+            }
+
+            .annotation-note-title {
+              font-weight: bold;
+            }
+
+            .hidden {
+              display: none;
+            }
+
+            text.hover {
+              font-size: .7em;
+            }
+
+            text.title {
+              font-size: 1.1em;
+            }
+            
+            .subject{
+                
+                cursor: pointer;
+                fill-opacity: 1;
+                stroke: yellow;
+            }
             
             .details{
                 color:white;
@@ -203,61 +241,62 @@
 
         <div class = "row">
         
-        <div class = "columnAnimal">
-        
-            <h2>Title One</h2>
-            <button class = "button Animal">
-            
-                <div class="image-container">
-                    <img src="https://s18.postimg.org/y6yps9erd/Tiger_Button.png"/>
-                    <div class="after"><p style="transform: translate(0,100%)">The Tiger</p></div>
-                </div>
-            
-            </button>
-            
-            <button class = "button Animal">
-                
-                <div class ="image-container">
-                    <img src="https://s18.postimg.org/rujkiijft/Elephant_Button.png"/>
-                    <div class="after"><p style="transform: translate(0,50%)">The Elephant</p></div>
-                </div>
-            
-            </button>
-            
-            <button class = "button Animal">
-            
-                <div class ="image-container">
-                    <img src="https://s18.postimg.org/y9ilf02yh/Rhino_Button.png"/>
-                    <div class="after"><p style="transform: translate(0,100%)">The Rhino</p></div>
-                </div>
-            
-            </button>
-            
-            <button class = "button Animal">
-            
-                <div class="image-container">
-                    <img src="https://s18.postimg.org/574bc68yx/Grey_Parrot_Button.png"/>
-                    <div class="after"><p style="transform: translate(0,50%)">The Grey Parrot</p></div>
-                </div>
-            
-            </button>
-    
-        </div>
-  
-        <div class="columnParts">
-    
-            <h2></h2>
-            <img style ="position: relative; left: 40%;" src="https://s18.postimg.org/a3cjhytgp/Body.png"/>
-        
+            <div class = "columnAnimal">
+
+                <h2>Title One</h2>
+                <button class = "button Animal">
+
+                    <div class="image-container">
+                        <img src="https://s18.postimg.org/y6yps9erd/Tiger_Button.png"/>
+                        <div class="after"><p style="transform: translate(0,120%)">Tiger</p></div>
+                    </div>
+
+                </button>
+
+                <button class = "button Animal">
+
+                    <div class ="image-container">
+                        <img src="https://s18.postimg.org/rujkiijft/Elephant_Button.png"/>
+                        <div class="after"><p style="transform: translate(0,120%)">Elephant</p></div>
+                    </div>
+
+                </button>
+
+                <button class = "button Animal">
+
+                    <div class ="image-container">
+                        <img src="https://s18.postimg.org/y9ilf02yh/Rhino_Button.png"/>
+                        <div class="after"><p style="transform: translate(0,120%)">Rhino</p></div>
+                    </div>
+
+                </button>
+
+                <button class = "button Animal">
+
+                    <div class="image-container">
+                        <img src="https://s18.postimg.org/574bc68yx/Grey_Parrot_Button.png"/>
+                        <div class="after"><p style="transform: translate(0,120%)">Grey Parrot</p></div>
+                    </div>
+
+                </button>
+
             </div>
-  
-        <div class="columnMap">
-    
-            <h2></h2>
-            <svg class = "Map-Container"></svg>
- 
-        </div>
-        </div>    
+            <div class="columnParts">
+
+                <h2></h2>
+                <img style ="position: relative; left: 20%;" src="https://s18.postimg.org/nf74csqkp/Final_Body_-_Small.png"/>
+                <!svg class="PartsAnno" style="width: 350px; height: 540; transform: translate(10%,-70%)"><!/svg>
+                <svg class="PartsAnno" style="width: 450px; height: 540; transform: translate(10%,-70%)"></svg>
+                </div>
+            <div class="columnMap">
+
+                <h2></h2>
+                <svg class = "Map-Container"></svg>
+
+            </div>
+
+        </div>   
+        
         <div class="footer">
         <div class = "row">
         
@@ -265,7 +304,7 @@
             <div class = "columnFooter"></div>
             <div class = "columnFooter"></div>        
             
-            <p><b>Created by: </b>Karthik Balakrishna, Ishaan Paranjape, Pranav Venkat</p>
+            <p><b>Created by: </b>Karthik Balakrishna, Ishaan Paranjape, Pranav Venkata</p>
             <p><b>In Collaboration with </b>Professor. Suresh Lodha</p>
             <p><b>For:</b> CMPS 263, Winter 18</p>
         
@@ -275,6 +314,10 @@
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="https://d3js.org/queue.v1.min.js"></script>
         <script src="https://d3js.org/topojson.v1.min.js"></script>
+        <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+        <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+        <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
         <script src="d3-tip.js"></script>
         <script>
             
@@ -308,7 +351,14 @@
                 .attr('class', 'd3-tip')
                 .offset([-10, 0])
                 .html(function(d) {
-                    return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Population: </strong><span class='details'>" + format(d.population) +"</span>";
+                    
+                    if (isNaN(d.population)){
+                        return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>"
+                    }
+                    else{
+                        return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Population: </strong><span class='details'>" + format(d.population) +"</span>";
+                    }
+                        
                 });
             
             // Setting tooltip directions for edge cases
@@ -375,11 +425,87 @@
               // otherwise if not specified
               return [-10, 0];
             })
+            
+            // Setting annotations for body parts
+            const annotations = [       
+            {
+              type: d3.annotationCalloutCircle,
+              note: {
+                label: "Your Bones would be used in Traditional Medicine in countries like China and India.",
+                title: "BONES",
+                wrap: 150
+              },
+              //settings for the subject, in this case the circle radius
+              subject: {
+                radius: 7
+              },
+              x: 208,
+              y: 250,
+              dy: 40,
+              dx: 20
+            },
+            {
+              type: d3.annotationCalloutCircle,
+              note: {
+                label: "Description for Gall Bladder.",
+                title: "GALL BLADDER",
+                wrap: 150
+              },
+              //settings for the subject, in this case the circle radius
+              subject: {
+                radius: 3
+              },
+              x: 191,
+              y: 167,
+              dy: 40,
+              dx: 40
+            },
+            {
+              type: d3.annotationCalloutCircle,
+              note: {
+                label: "Description for Liver.",
+                title: "Liver",
+                wrap: 150
+              },
+              //settings for the subject, in this case the circle radius
+              subject: {
+                radius: 3
+              },
+              x: 171,
+              y: 167,
+              dy: 30,
+              dx: -30
+            }].map(function(d){ d.color = "#E8336D"; return d})
 
-            // Only defined for projection    
+            const makeAnnotations = d3.annotation()
+              .type(d3.annotationLabel)
+              .annotations(annotations)
+            .on('subjectover', function (annotation) {
+                annotation.type.a.selectAll("g.annotation-connector, g.annotation-note").classed("hidden", false);
+            })
+            .on('subjectout', function (annotation) {
+                annotation.type.a.selectAll("g.annotation-connector, g.annotation-note").classed("hidden", true);
+            });
+
+            d3.select("svg")
+              .append("g")
+              .attr("class", "annotation-group")
+              .call(makeAnnotations);
+            
+            d3.select(".PartsAnno").selectAll("g.annotation-connector, g.annotation-note").classed("hidden", true);
+                    
+            // Only defined for projection, not used anywhere else    
             var margin = {top: 0, right: 0, bottom: 0, left: 0},
                 width = 960 - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
+            
+            var svg = d3.select(".Map-Container")
+                .append('g')
+                .attr('class', 'map');
+            
+            var g = svg.select("g");
+            //console.log(svg);
+
             
             // Manipulating colours
             var colors = d3.scaleThreshold()
@@ -400,19 +526,15 @@
             }
             
             
-           
-            var svg = d3.select(".Map-Container")
-                .append('g')
-                .attr('class', 'map');
-            
-            var g = svg.select("g");
-            //console.log(svg);
+            var projection = d3.geoKavrayskiy7()//d3.geoCylindricalStereographic()
+                .scale(150)
+                .translate([width / 2, height / 2]);
             
 
-            var projection = d3.geoMercator()
+            /*var projection = d3.geoMercator()//d3.geoCylindricalStereographic()
                 .scale(110)
                 .translate([width / 2, height / 1.5]);
-
+*/
             var path = d3.geoPath().projection(projection);
 
             svg.call(tip);
