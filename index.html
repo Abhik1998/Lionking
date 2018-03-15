@@ -48,7 +48,7 @@
 
             /*Defining buttons with images*/
             .button {
-                background-color: whitesmoke; /* Green */
+                background-color: whitesmoke; /* This is whitesmoke so as to mask the artefacts around the buttons */
                 border: none;
                 color: white;
                 padding: 0px;
@@ -59,6 +59,7 @@
                 margin: 4px 2px;
                 cursor: pointer;
                 border-radius: 100%;
+                border-radius: 50%;
                 align-content: center;
             }
 
@@ -123,7 +124,7 @@
                 background: rgba(0, 0, 0, .6);
                 border-radius: 48%;
                 border-style: solid;
-                border-color: yellow;
+                border-color: steelblue;
             }
             
             .names {
@@ -196,10 +197,14 @@
             }
 
             .annotation path.connector-arrow, 
-            .title text, .annotation text,
             .annotation.callout.circle .annotation-subject path{
-              fill: #E8336D;
-              font-size: 10px;    
+                 
+                fill: gold;
+                  
+            }
+            
+            .title text, .annotation text{
+              font-size: 10px;  
             }
 
             .annotation-note-bg {
@@ -226,7 +231,7 @@
                 
                 cursor: pointer;
                 fill-opacity: 1;
-                stroke: yellow;
+                
             }
             
             .details{
@@ -286,9 +291,9 @@
             <div class="columnParts">
 
                 <h2></h2>
-                <img style ="position: relative; left: 20%;" src="https://s18.postimg.org/nf74csqkp/Final_Body_-_Small.png"/>
+                <img style ="position: relative; left: 30%;" src="https://s18.postimg.org/nf74csqkp/Final_Body_-_Small.png"/>
                 <!svg class="PartsAnno" style="width: 350px; height: 540; transform: translate(10%,-70%)"><!/svg>
-                <svg class="PartsAnno" style="width: 450px; height: 540; transform: translate(10%,-70%)"></svg>
+                <svg class="PartsAnno" style="width: 450px; height: 540; transform: translate(10%,-80%)"></svg>
                 </div>
             <div class="columnMap">
 
@@ -435,49 +440,178 @@
               note: {
                 label: "Your Bones would be used in Traditional Medicine in countries like China and India.",
                 title: "BONES",
-                wrap: 150
+                wrap: 100
               },
               //settings for the subject, in this case the circle radius
               subject: {
-                radius: 7
+                radius: 5
               },
-              x: 208,
-              y: 250,
-              dy: 40,
-              dx: 20
+              x: 250,
+              y: 305,
+              dy: 30,
+              dx: 40
+            },
+            {
+              type: d3.annotationCalloutCircle,
+              note: {
+                label: "Description for feet.",
+                title: "FEET",
+                wrap: 100
+              },
+              //settings for the subject, in this case the circle radius
+              subject: {
+                radius: 5
+              },
+              x: 252,
+              y: 375,
+              dy: -20,
+              dx: 50
             },
             {
               type: d3.annotationCalloutCircle,
               note: {
                 label: "Description for Gall Bladder.",
                 title: "GALL BLADDER",
-                wrap: 150
+                wrap: 100
               },
               //settings for the subject, in this case the circle radius
               subject: {
                 radius: 3
               },
-              x: 191,
-              y: 167,
+              x: 233,
+              y: 222,
               dy: 40,
               dx: 40
             },
             {
               type: d3.annotationCalloutCircle,
               note: {
-                label: "Description for Liver.",
-                title: "Liver",
-                wrap: 150
+                label: "Description for Heart.",
+                title: "HEART",
+                wrap: 100
               },
               //settings for the subject, in this case the circle radius
               subject: {
                 radius: 3
               },
-              x: 171,
-              y: 167,
+              x: 233,
+              y: 195,
+              dy: -40,
+              dx: 40
+            },
+            {
+              type: d3.annotationCalloutCircle,
+              note: {
+                label: "Description for Teeth.",
+                title: "TEETH",
+                wrap: 100
+              },
+              //settings for the subject, in this case the circle radius
+              subject: {
+                radius: 3
+              },
+              x: 237,
+              y: 135,
+              dy: 15,
+              dx: 60
+            },    
+            {
+              type: d3.annotationCalloutCircle,
+              note: {
+                label: "Description for Hair.",
+                title: "HAIR",
+                wrap: 100
+              },
+              //settings for the subject, in this case the circle radius
+              subject: {
+                radius: 3
+              },
+              x: 233,
+              y: 75,
+              dy: -10,
+              dx: 50
+            },    
+            {
+              type: d3.annotationCalloutCircle,
+              note: {
+                label: "Description for Liver.",
+                title: "LIVER",
+                wrap: 100
+              },
+              //settings for the subject, in this case the circle radius
+              subject: {
+                radius: 3
+              },
+              x: 213,
+              y: 222,
               dy: 30,
               dx: -30
-            }].map(function(d){ d.color = "#E8336D"; return d})
+            },
+            {
+              type: d3.annotationCalloutCircle,
+              note: {
+                label: "Description for Nails. Description for Nails.",
+                title: "NAILS",
+                wrap: 100
+              },
+              //settings for the subject, in this case the circle radius
+              subject: {
+                radius: 3
+              },
+              x: 105,
+              y: 223,
+              dy: 30,
+              dx: -5
+            },    
+            {
+              type: d3.annotationCalloutCircle,
+              note: {
+                label: "Description for Skin.",
+                title: "SKIN",
+                wrap: 100
+              },
+              //settings for the subject, in this case the circle radius
+              subject: {
+                radius: 5
+              },
+              x: 195,
+              y: 162,
+              dy: -30,
+              dx: -30
+            },
+            {
+              type: d3.annotationCalloutCircle,
+              note: {
+                label: "Description for Blood.",
+                title: "BLOOD",
+                wrap: 100
+              },
+              //settings for the subject, in this case the circle radius
+              subject: {
+                radius: 5
+              },
+              x: 200,
+              y: 359,
+              dy: -30,
+              dx: -30
+            },    
+            {
+              type: d3.annotationCalloutCircle,
+              note: {
+                label: "Description for Ears.",
+                title: "EARS",
+                wrap: 100
+              },
+              //settings for the subject, in this case the circle radius
+              subject: {
+                radius: 3
+              },
+              x: 190,
+              y: 110,
+              dy: -30,
+              dx: -30
+            },    
+            ].map(function(d){ d.color = "#E8336D"; return d})
 
             const makeAnnotations = d3.annotation()
               .type(d3.annotationLabel)
