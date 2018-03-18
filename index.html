@@ -77,8 +77,6 @@
                 transform: translate(-18%,-2%);
             }
 
-            
-
             img {
                 
                 text-align: center;
@@ -249,8 +247,7 @@
                 fill-opacity: 1;
                 
             }
-        
-            
+                   
         </style>
 
     </head>
@@ -373,7 +370,8 @@
             /*d3.select(".Rhino").classed("imghidden",true);
             d3.select(".Elephant").classed("imghidden",true);
             d3.select(".Parrot").classed("imghidden",true);
-*/
+            */
+            
             //Setting up buttons 
             d3.select(".BTiger").on("click", function(){
                 console.log("Tiger");
@@ -425,8 +423,7 @@
                     }
                     else{
                         return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Ivory Products: </strong><span class='details'>" + format(Math.floor(d.population)) +"</span>";
-                    }
-                        
+                    }      
                 });
             
             // Setting tooltip directions for edge cases
