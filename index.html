@@ -13,14 +13,17 @@
             .columnAnimal {
                 float: left;
                 width: 10%;
+                height: 500px;
                 padding: 10px;
                 padding-left: 0px;
-                transform: translate(0%,-17%);
+                transform: translate(0%,-7%);
+                
             }
 
             .columnParts {
                 float: left;
                 width: 35%;
+                height: 500px;
                 padding: 10px;
                 padding-left: 20px;
             }
@@ -28,7 +31,7 @@
             .columnMap {
                 float: left;
                 width: 55%;
-                height: 100%;
+                height: 500px;
                 padding: 10px;
             }
 
@@ -48,7 +51,7 @@
 
             /*Defining buttons with images*/
             .button {
-                background-color: whitesmoke; /* This is whitesmoke so as to mask the artefacts around the buttons */
+                background-color: white; /* This is whitesmoke so as to mask the artefacts around the buttons */
                 border: none;
                 color: white;
                 padding: 0px;
@@ -60,6 +63,8 @@
                 cursor: pointer;
                 border-radius: 50%;
                 align-content: center;
+                padding-bottom: 10px;
+                padding-left: 10%;
             }
 
             /*Defining the Map SVG*/
@@ -72,14 +77,15 @@
                 transform: translate(-18%,-2%);
             }
 
-            .Animal {
-                padding-bottom: 10px;
-                padding-left: 10%;
-            }
+            
 
             img {
-                border-radius: 50%;
+                
                 text-align: center;
+            }
+            
+            .rounded{
+                border-radius: 50%;
             }
 
             button:focus,img:focus{
@@ -99,7 +105,7 @@
 
             /*Default background*/
             body {
-                background-color: whitesmoke;
+                background-color: white;
             }
 
             /*Adding overlay effects for the buttons*/
@@ -112,7 +118,7 @@
                 top: 0;
                 left: 0;
                 width: 100%;
-                height: 100%;
+                height: 99%;
                 display: none;
                 color: #FFF;
                 border-style: solid;
@@ -121,9 +127,9 @@
             .image-container:hover .after {
                 display: block;
                 background: rgba(0, 0, 0, .6);
-                border-radius: 48%;
+                border-radius: 50%;
                 border-style: solid;
-                border-color: steelblue;
+                border-color: #D81E05;
             }
             
             .names {
@@ -131,16 +137,19 @@
                 stroke: #fff;
                 stroke-linejoin: round;    
             }
+            
             /* Tooltip CSS */
             .d3-tip {
                 line-height: 1.5;
                 font-weight: 400;
                 font-family:"avenir next", Arial, sans-serif;
                 padding: 6px;
-                background: rgba(0, 0, 0, 0.6);
-                color: #FFA500;
+                background: rgba(255, 255, 255, 1);
+                color: #D81E05;
                 border-radius: 1px;
                 pointer-events: none;
+                border: 1px solid red;
+                
             }
 
             /* Creates a small triangle extender for the tooltip */
@@ -150,7 +159,7 @@
                 font-size: 8px;
                 width: 100%;
                 line-height: 1.5;
-                color: rgba(0, 0, 0, 0.6);
+                color: #D81E05;
                 position: absolute;
                 pointer-events: none;
             }
@@ -169,7 +178,7 @@
                 content: "\25C0";
                 margin: -4px 0 0 0;
                 top: 50%;
-                left: -8px;
+                left: -9px;
             }
 
             /* Southward tooltips */
@@ -186,19 +195,23 @@
                 content: "\25B6";
                 margin: -4px 0 0 -1px;
                 top: 50%;
-                left: 100%;
+                left: 102%;
+            }
+            
+            .details{
+                color:#D81E05;
             }
             
             /* For annotations and other elements - Annotations for human parts */
             .annotation path {
-              stroke: #E8336D;
+              stroke: #D81E05;
               fill: none;
             }
 
             .annotation path.connector-arrow, 
             .annotation.callout.circle .annotation-subject path{
                  
-                fill: gold;
+                fill: #D81E05;
                   
             }
             
@@ -217,6 +230,10 @@
             .hidden {
               display: none;
             }
+            
+            .imghidden {
+                opacity: 0;    
+            }
 
             text.hover {
               font-size: .7em;
@@ -232,10 +249,7 @@
                 fill-opacity: 1;
                 
             }
-            
-            .details{
-                color:white;
-            }
+        
             
         </style>
 
@@ -243,45 +257,45 @@
 
     <body>
 
-        <h1>What if you were an Animal?</h1>
+        <h1>The Illegal Wildlife Trade</h1>
 
         <div class = "row">
         
             <div class = "columnAnimal">
 
                 <h2></h2>
-                <button class = "button Animal">
+                <button class = "button BTiger">
 
                     <div class="image-container">
-                        <img src="https://s18.postimg.org/vtmr0vc6h/Tiger_Icon.png"/>
-                        <div class="after"><p style="transform: translate(0,250%)">Tiger</p></div>
+                        <img class="rounded" src="tigericon.png"/>
+                        <div class="after"><p style="transform: translate(0,100%)">Tiger</p></div>
                     </div>
 
                 </button>
 
-                <button class = "button Animal">
+                <button class = "button BElephant">
 
                     <div class ="image-container">
-                        <img src="https://s18.postimg.org/s8qvi2fh5/Elephant_Icon.png"/>
-                        <div class="after"><p style="transform: translate(0,250%)">Elephant</p></div>
+                        <img class="rounded" src="elephanticon.png"/>
+                        <div class="after"><p style="transform: translate(0,100%)">Elephant</p></div>
                     </div>
 
                 </button>
 
-                <button class = "button Animal">
+                <button class = "button BRhino">
 
                     <div class ="image-container">
-                        <img src="https://s18.postimg.org/mxbyx3dw9/Rhino_Icon.png"/>
-                        <div class="after"><p style="transform: translate(0,250%)">Rhino</p></div>
+                        <img class="rounded" src="rhinoicon.png"/>
+                        <div class="after"><p style="transform: translate(0,100%)">Rhino</p></div>
                     </div>
 
                 </button>
 
-                <button class = "button Animal">
+                <button class = "button BParrot">
 
                     <div class="image-container">
-                        <img src="https://s18.postimg.org/5y30hri3d/Parrot_Icon.png"/>
-                        <div class="after"><p style="transform: translate(0,250%)">Grey Parrot</p></div>
+                        <img class="rounded" src="greyparroticon.png"/>
+                        <div class="after"><p style="transform: translate(0,100%)">Grey Parrot</p></div>
                     </div>
 
                 </button>
@@ -290,10 +304,16 @@
             <div class="columnParts">
 
                 <h2></h2>
-                <img style ="position: relative; left: 30%;" src="https://s18.postimg.org/nf74csqkp/Final_Body_-_Small.png"/>
-                <!svg class="PartsAnno" style="width: 350px; height: 540; transform: translate(10%,-70%)"><!/svg>
-                <svg class="PartsAnno" style="width: 450px; height: 540; transform: translate(10%,-80%)"></svg>
-                </div>
+                <img class = "Tiger" style ="position: relative; transform: translate(10%,30%)" src="tiger.png"/>
+                <img class = "Elephant imghidden" style ="position: relative; transform: translate(10%,-70%)" src="elephant.png"/>
+                <img class = "Rhino imghidden" style ="position: relative; transform: translate(10%, -190%)" src="rhino.png"/>
+                <img class = "Parrot imghidden" style ="position: relative; transform: translate(30%, -350%)" src="greyparrot.png"/>
+                
+                <svg style="width: 450px; height: 540; transform: translate(10%,-260%)"></svg>
+                
+                
+            </div>
+            
             <div class="columnMap">
 
                 <h2></h2>
@@ -350,6 +370,48 @@
                 });            
             });*/
             
+            /*d3.select(".Rhino").classed("imghidden",true);
+            d3.select(".Elephant").classed("imghidden",true);
+            d3.select(".Parrot").classed("imghidden",true);
+*/
+            //Setting up buttons 
+            d3.select(".BTiger").on("click", function(){
+                console.log("Tiger");
+                
+                d3.select(".Tiger").classed("imghidden",false);
+                d3.select(".Rhino").classed("imghidden",true);
+                d3.select(".Elephant").classed("imghidden",true);
+                d3.select(".Parrot").classed("imghidden",true);
+            });
+            
+            d3.select(".BElephant").on("click", function(){
+                console.log("Elephant");
+                
+                d3.select(".Elephant").classed("imghidden",false);
+                d3.select(".Rhino").classed("imghidden",true);
+                d3.select(".Tiger").classed("imghidden",true);
+                d3.select(".Parrot").classed("imghidden",true);
+            });
+            
+            d3.select(".BRhino").on("click", function(){
+                console.log("Rhino");
+                
+                d3.select(".Rhino").classed("imghidden",false);
+                d3.select(".Tiger").classed("imghidden",true);
+                d3.select(".Elephant").classed("imghidden",true);
+                d3.select(".Parrot").classed("imghidden",true);
+            });
+            
+            d3.select(".BParrot").on("click", function(){
+                console.log("Grey Parrot");
+                
+                d3.select(".Parrot").classed("imghidden",false);
+                d3.select(".Rhino").classed("imghidden",true);
+                d3.select(".Elephant").classed("imghidden",true);
+                d3.select(".Tiger").classed("imghidden",true);
+            });
+            
+            
             var format = d3.format(",");
 
             // Set tooltips
@@ -362,7 +424,7 @@
                         return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>"
                     }
                     else{
-                        return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Population: </strong><span class='details'>" + format(d.population) +"</span>";
+                        return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Ivory Products: </strong><span class='details'>" + format(Math.floor(d.population)) +"</span>";
                     }
                         
                 });
@@ -433,6 +495,7 @@
             })
             
             // Setting annotations for body parts
+            
             const annotations = [       
             {
               type: d3.annotationCalloutCircle,
@@ -610,7 +673,7 @@
               dy: -30,
               dx: -30
             },    
-            ].map(function(d){ d.color = "#E8336D"; return d})
+            ].map(function(d){ d.color = "#D81E05"; return d})
 
             const makeAnnotations = d3.annotation()
               .type(d3.annotationLabel)
@@ -627,8 +690,8 @@
               .attr("class", "annotation-group")
               .call(makeAnnotations);
             
-            d3.select(".PartsAnno").selectAll("g.annotation-connector, g.annotation-note").classed("hidden", true);
-                    
+            d3.select(".annotation-group").selectAll("g.annotation-connector, g.annotation-note").classed("hidden", true);      
+            
             // Only defined for projection, not used anywhere else    
             var margin = {top: 0, right: 0, bottom: 0, left: 0},
                 width = 960 - margin.left - margin.right,
@@ -644,10 +707,8 @@
             
             // Manipulating colours
             var colors = d3.scaleThreshold()
-                //.domain([10000,100000,500000,1000000,5000000,10000000,50000000,100000000,500000000,1500000000])
-                //.range(["red", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)","rgb(33,113,181)","rgb(8,81,156)","rgb(8,48,107)","rgb(3,19,43)"]);
                 .domain([1,5,182,280,371,507])
-                .range(["rgb(198,219,239)","rgb(158,202,225)","rgb(107,174,214)","rgb(66,146,198)","rgb(33,113,181)","rgb(8,81,156)","rgb(8,48,107)"]);
+                .range(["#fee5d9","#fcbba1","#fc9272","#fb6a4a","#de2d26","#D81E05"]);
             
             function color (d){
                 
@@ -660,6 +721,9 @@
                 }
             }
             
+            /*var projection = d3.geoVanDerGrinten()//d3.geoCylindricalStereographic()
+                .scale(100)
+                .translate([width / 2, height / 2]);*/
             
             var projection = d3.geoKavrayskiy7()//d3.geoCylindricalStereographic()
                 .scale(150)
@@ -676,7 +740,7 @@
             
             queue()
                .defer(d3.json, "world_map.json")
-               .defer(d3.csv, "TigerBones.csv")
+               .defer(d3.csv, "out_2016.csv")
                .await(ready);
             
             function ready(error, data, population) {
@@ -724,6 +788,7 @@
                     .attr("class", "names")
                     .attr("d", path);
                 }
+            
             
         </script>
         
