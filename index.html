@@ -371,44 +371,8 @@
             /*d3.select(".Rhino").classed("imghidden",true);
             d3.select(".Elephant").classed("imghidden",true);
             d3.select(".Parrot").classed("imghidden",true);
-<<<<<<< HEAD
-*/
-            //Setting up buttons
-            d3.select(".BTiger").on("click", function(){
-                console.log("Tiger");
-
-                d3.select(".Tiger").classed("imghidden",false);
-                d3.select(".Rhino").classed("imghidden",true);
-                d3.select(".Elephant").classed("imghidden",true);
-                d3.select(".Parrot").classed("imghidden",true);
-            });
-
-            d3.select(".BElephant").on("click", function(){
-                console.log("Elephant");
-
-                d3.select(".Elephant").classed("imghidden",false);
-                d3.select(".Rhino").classed("imghidden",true);
-                d3.select(".Tiger").classed("imghidden",true);
-                d3.select(".Parrot").classed("imghidden",true);
-            });
-
-            d3.select(".BRhino").on("click", function(){
-                console.log("Rhino");
-
-                d3.select(".Rhino").classed("imghidden",false);
-                d3.select(".Tiger").classed("imghidden",true);
-                d3.select(".Elephant").classed("imghidden",true);
-                d3.select(".Parrot").classed("imghidden",true);
-            });
-
-            d3.select(".BParrot").on("click", function(){
-                console.log("Grey Parrot");
-
-                d3.select(".Parrot").classed("imghidden",false);
-                d3.select(".Rhino").classed("imghidden",true);
-                d3.select(".Elephant").classed("imghidden",true);
-                d3.select(".Tiger").classed("imghidden",true);
-            });
+            */
+            
 
 
             var format = d3.format(",");
@@ -457,40 +421,43 @@
 
             // Setting tooltip offsets for edge cases
             tip.offset(function(d) { // [top, left]
-              if (d.properties.name === 'Antarctica') return [0, 0];
-              // Americas
-              if (d.properties.name === 'Greenland') return [10, -10];
-              if (d.properties.name === 'Canada') return [24, -28];
-              if (d.properties.name === 'USA') return [30, 8];
-              if (d.properties.name === 'Mexico') return [12, 10];
-              if (d.properties.name === 'Chile') return [0, -15];
-              // Europe
-              if (d.properties.name === 'Iceland') return [15, 0];
-              if (d.properties.name === 'Norway') return [10, -28];
-              if (d.properties.name === 'Sweden') return [10, -8];
-              if (d.properties.name === 'Finland') return [10, 0];
-              if (d.properties.name === 'France') return [-9, 66];
-              if (d.properties.name === 'Italy') return [-8, -6];
-              if (d.properties.name === 'Russia') return [-35, 350];
-              // Africa
-              if (d.properties.name === 'Madagascar') return [-10, 10];
-              // Asia
-              if (d.properties.name === 'China') return [-16, -8];
-              if (d.properties.name === 'Mongolia') return [-5, 0];
-              if (d.properties.name === 'Pakistan') return [-10, 13];
-              if (d.properties.name === 'India') return [-11, -18];
-              if (d.properties.name === 'Nepal') return [-8, 1];
-              if (d.properties.name === 'Myanmar') return [-12, 0];
-              if (d.properties.name === 'Laos') return [-12, -8];
-              if (d.properties.name === 'Vietnam') return [-12, -4];
-              if (d.properties.name === 'Japan') return [5, 5];
-              // Oceania
-              if (d.properties.name === 'Indonesia') return [0, -5];
-              if (d.properties.name === 'Papua New Guinea') return [-5, -10];
-              if (d.properties.name === 'Australia') return [-15, 0];
-              if (d.properties.name === 'New Zealand') return [-15, 0];
-              // otherwise if not specified
-              return [-10, 0];
+                
+                if (d.properties.name === 'Antarctica') return [0, 0];
+                // Americas 
+                if (d.properties.name === 'Greenland') return [10, -10];
+                if (d.properties.name === 'Canada') return [24, -28];
+                if (d.properties.name === 'USA') return [30, 8];
+                if (d.properties.name === 'Mexico') return [12, 10];
+                if (d.properties.name === 'Chile') return [0, -15];
+                // Europe
+                if (d.properties.name === 'Iceland') return [15, 0];
+                if (d.properties.name === 'Norway') return [10, -28];
+                if (d.properties.name === 'Sweden') return [10, -8];
+                if (d.properties.name === 'Finland') return [10, 0];
+                if (d.properties.name === 'France') return [-9, 66];
+                if (d.properties.name === 'Italy') return [-8, -6];
+                if (d.properties.name === 'Russia') return [-35, 350];
+                // Africa
+                if (d.properties.name === 'Madagascar') return [-10, 10];
+                // Asia
+                if (d.properties.name === 'China') return [-16, -8];
+                if (d.properties.name === 'Mongolia') return [-5, 0];
+                if (d.properties.name === 'Pakistan') return [-10, 13];
+                if (d.properties.name === 'India') return [-11, -18];
+                if (d.properties.name === 'Nepal') return [-8, 1];
+                if (d.properties.name === 'Myanmar') return [-12, 0];
+                if (d.properties.name === 'Laos') return [-12, -8];
+                if (d.properties.name === 'Vietnam') return [-12, -4];
+                if (d.properties.name === 'Japan') return [5, 5];
+              
+                // Oceania
+                if (d.properties.name === 'Indonesia') return [0, -5];
+                if (d.properties.name === 'Papua New Guinea') return [-5, -10];
+                if (d.properties.name === 'Australia') return [-15, 0];
+                if (d.properties.name === 'New Zealand') return [-15, 0];
+                // otherwise if not specified
+              
+                return [-10, 0];
             })
 
             // Setting annotations for body parts
@@ -802,6 +769,96 @@
                     .attr("scale", d3.event.scale)
             }
 
+            //Setting up buttons
+            d3.select(".BTiger").on("click", function(){
+                console.log("Tiger");
+
+                d3.select(".Tiger").classed("imghidden",false);
+                d3.select(".Rhino").classed("imghidden",true);
+                d3.select(".Elephant").classed("imghidden",true);
+                d3.select(".Parrot").classed("imghidden",true);
+            });
+
+            d3.select(".BElephant").on("click", function(){
+                console.log("Elephant");
+
+                d3.select(".Elephant").classed("imghidden",false);
+                d3.select(".Rhino").classed("imghidden",true);
+                d3.select(".Tiger").classed("imghidden",true);
+                d3.select(".Parrot").classed("imghidden",true);
+                
+                queue()
+                   .defer(d3.json, "world_map.json")
+                   .defer(d3.csv, "csvFiles/Animals/Elephant/out_2016.csv")
+                   .await(update);
+                
+            });
+
+            d3.select(".BRhino").on("click", function(){
+                console.log("Rhino");
+
+                d3.select(".Rhino").classed("imghidden",false);
+                d3.select(".Tiger").classed("imghidden",true);
+                d3.select(".Elephant").classed("imghidden",true);
+                d3.select(".Parrot").classed("imghidden",true);
+            });
+
+            d3.select(".BParrot").on("click", function(){
+                console.log("Grey Parrot");
+
+                d3.select(".Parrot").classed("imghidden",false);
+                d3.select(".Rhino").classed("imghidden",true);
+                d3.select(".Elephant").classed("imghidden",true);
+                d3.select(".Tiger").classed("imghidden",true);
+                
+                queue()
+                   .defer(d3.json, "world_map.json")
+                   .defer(d3.csv, "csvFiles/Animals/Grey_Parrot/out_2016.csv")
+                   .await(update);
+                
+            });
+            
+            function update(error, data, population){
+                var populationById = {};
+
+                population.forEach(function(d) { populationById[d.id] = +d.population; });
+                data.features.forEach(function(d) { d.population = populationById[d.id] });
+
+                svg.selectAll("path")
+                    .data(data.features).transition().duration(800)
+                        .style("fill", function(d) {
+                            //console.log(populationById[d.id])
+                            return color(populationById[d.id]);
+                        })
+                        .style('stroke', 'darkgrey')
+                        .style('stroke-width', 1.5)
+                        .style("opacity",0.8)
+                        // tooltips
+                        .style("stroke","white")
+                        .style('stroke-width', 0.3)
+                        .on('mouseover',function(d){
+                          tip.show(d);
+
+                          d3.select(this)
+                            .style("opacity", 1)
+                            .style("stroke","white")
+                            .style("stroke-width",2);
+                        })
+                        .on('mouseout', function(d){
+                          tip.hide(d);
+
+                          d3.select(this)
+                            .style("opacity", 0.8)
+                            .style("stroke","white")
+                            .style("stroke-width",0.3);
+                        });
+
+                /*svg.append("path")
+                    .datum(topojson.mesh(data.features, function(a, b) { return a.id !== b.id; }))
+                    // .datum(topojson.mesh(data.features, function(a, b) { return a !== b; }))
+                    .attr("class", "names")
+                    .attr("d", path);*/
+                }
 
         </script>
 
