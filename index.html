@@ -301,8 +301,8 @@
 
                 <h2></h2>
                 <img class = "Tiger" style ="position: relative; transform: translate(10%,30%)" src="images/tiger.png"/>
-                <img class = "Elephant imghidden" style ="position: relative; transform: translate(10%,-70%)" src="images/elephant.png"/>
-                <img class = "Rhino imghidden" style ="position: relative; transform: translate(10%, -190%)" src="images/rhino.png"/>
+                <img class = "Elephant imghidden" style ="position: relative; transform: translate(10%,-60%)" src="images/elephant.png"/>
+                <img class = "Rhino imghidden" style ="position: relative; transform: translate(15%, -200%)" src="images/rhino.png"/>
                 <img class = "Parrot imghidden" style ="position: relative; transform: translate(30%, -350%)" src="images/greyparrot.png"/>
 
                 <svg style="width: 450px; height: 540; transform: translate(10%,-260%)"></svg>
@@ -682,13 +682,14 @@
                 annotation.type.a.selectAll("g.annotation-connector, g.annotation-note").classed("hidden", true);
             });
 
-            d3.select("svg")
+            /*d3.select("svg")
               .append("g")
               .attr("class", "annotation-group")
               .call(makeAnnotations);
 
             d3.select(".annotation-group").selectAll("g.annotation-connector, g.annotation-note").classed("hidden", true);
-
+            */
+            
             // Only defined for projection, not used anywhere else
             var margin = {top: 0, right: 0, bottom: 0, left: 0},
                 width = 960 - margin.left - margin.right,
@@ -778,26 +779,26 @@
                             .style("stroke","white")
                             .style("stroke-width",0.3);
                         });
-                var zoom_handler = d3.zoom()
-                .scaleExtent([1, 4])
-                .on("zoom", zoom_actions)
-                svg.call(zoom_handler);
-
-
+            
                 svg.append("path")
                     .datum(topojson.mesh(data.features, function(a, b) { return a.id !== b.id; }))
                     // .datum(topojson.mesh(data.features, function(a, b) { return a !== b; }))
                     .attr("class", "names")
                     .attr("d", path);
                 }
+            
+            var zoom_handler = d3.zoom()
+                .scaleExtent([1, 4])
+                .on("zoom", zoom_actions)
+                
+            svg.call(zoom_handler);
 
-                function zoom_actions(){
+            function zoom_actions(){
                 svg.selectAll(".countries")
-                .attr("transform", d3.event.transform)
-                .attr("translate", d3.event.translate)
-                .attr("scale", d3.event.scale)
-
-              }
+                    .attr("transform", d3.event.transform)
+                    .attr("translate", d3.event.translate)
+                    .attr("scale", d3.event.scale)
+            }
 
 
         </script>
