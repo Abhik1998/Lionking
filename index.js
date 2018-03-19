@@ -326,7 +326,7 @@ var g = svg.select("g");
 // Manipulating colours
 var colors = d3.scaleThreshold()
     .domain([1,5,182,280,371,507])
-    .range(["#fee5d9","#fcbba1","#fc9272","#fb6a4a","#de2d26","#D81E05"]);
+    .range(["#fee5d9","#fcbba1","#fc9272","#fb6a4a","#de2d26","#a50f15"]);
 
 function color (d){
 
@@ -644,7 +644,7 @@ function update(error, data, population){
 // Appending Legend     
 var LegendScale = d3.scaleThreshold()
     .domain([5,182,280,371,507])
-    .range(["#fee5d9","#fcbba1","#fc9272","#fb6a4a","#de2d26","#9e1301"]);
+    .range(["#fee5d9","#fcbba1","#fc9272","#fb6a4a","#de2d26","#a50f15"]);
 
 LegendScale.domain([5,182,280,371,507]);
 
