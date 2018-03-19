@@ -457,7 +457,12 @@ d3.select(".BTiger").on("click", function(){
 
 d3.select(".BElephant").on("click", function(){
     console.log("Elephant");
-
+    
+    /*// Demo to change scale
+    LegendScale.domain([1,115]);
+    svgLegend.select(".legend")
+    .call(legend);
+    */
     // Change map header to correct one
     d3.select("#mapheader").text("Elephant Origin, 2016");
     
@@ -642,11 +647,9 @@ function update(error, data, population){
     };
 
 // Appending Legend     
-var LegendScale = d3.scaleThreshold()
-    .domain([5,182,280,371,507])
+var LegendScale = d3.scaleQuantize()
+    .domain([1,507])
     .range(["#fee5d9","#fcbba1","#fc9272","#fb6a4a","#de2d26","#a50f15"]);
-
-LegendScale.domain([5,182,280,371,507]);
 
 var svgLegend = d3.select(".Map-Legend");
 
@@ -662,7 +665,7 @@ var legend = d3.legendColor()
     .orient('horizontal')
     .labelAlign("end")
     .labelFormat(d3.format(".0f"))
-    .labels(d3.legendHelpers.thresholdLabels)
+    //.labels(d3.legendHelpers.thresholdLabels)
     .scale(LegendScale);
 
 svgLegend.select(".legend")
