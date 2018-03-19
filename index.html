@@ -843,7 +843,7 @@
                 
                 queue()
                    .defer(d3.json, "world_map.json")
-                   .defer(d3.csv, "csvFiles/Animals/Grey_Parrot/out_2016.csv")
+                   .defer(d3.csv, "csvFiles/Animals/demo/grey_parrot_2016.csv")
                    .await(update);
                 
             });

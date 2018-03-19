@@ -1,0 +1,104 @@
+App.,Taxon,Term,Unit,Country,2016
+I,Ceratotherium simum,horn carvings,,AT,1
+I,Ceratotherium simum,horn pieces,,ZA,4
+I,Ceratotherium simum,horns,,AT,1
+I,Ceratotherium simum,live,,NA,6
+I,Ceratotherium simum,specimens,ml,ZA,4.25
+I,Ceratotherium simum,specimens,,KE,30
+I,Ceratotherium simum,specimens,,ZA,662
+I,Ceratotherium simum,trophies,,RU,2
+I,Ceratotherium simum,trophies,,US,1
+I,Ceratotherium simum simum,carvings,,MX,1
+I,Ceratotherium simum simum,horns,,BE,5
+I,Ceratotherium simum simum,live,,AU,2
+I,Ceratotherium simum simum,live,,MX,2
+I,Ceratotherium simum simum,specimens,,ZA,14
+I,Ceratotherium simum simum,trophies,,DE,1
+I,Ceratotherium simum simum,trophies,,TR,1
+I,Ceratotherium simum simum,trophies,,US,4
+I,Dicerorhinus sumatrensis,specimens,,DE,100
+I,Diceros bicornis,bodies,,CN,1
+I,Diceros bicornis,carvings,,AU,1
+I,Diceros bicornis,carvings,,HK,1
+I,Diceros bicornis,feet,,CN,4
+I,Diceros bicornis,feet,,DK,1
+I,Diceros bicornis,feet,,GB,1
+I,Diceros bicornis,horn carvings,,HK,1
+I,Diceros bicornis,horn pieces,,ZA,4
+I,Diceros bicornis,horns,,CN,2
+I,Diceros bicornis,horns,,GB,2
+I,Diceros bicornis,horns,,HK,2
+I,Diceros bicornis,horns,,SG,1
+I,Diceros bicornis,live,,MX,1
+I,Diceros bicornis,live,,TT,1
+I,Diceros bicornis,live,,TZ,1
+I,Diceros bicornis,skins,,CN,1
+I,Diceros bicornis,specimens,ml,ZA,0.9
+I,Diceros bicornis,specimens,,KE,68
+I,Diceros bicornis,specimens,,SE,2
+I,Diceros bicornis,specimens,,US,80
+I,Diceros bicornis,specimens,,ZA,1162
+I,Rhinoceros sondaicus,carvings,,HK,1
+I,Rhinoceros sondaicus,carvings,,JP,1
+I,Rhinoceros sondaicus,horn carvings,,HK,1
+I,Rhinoceros unicornis,horn carvings,,HK,17
+I,Rhinoceros unicornis,live,,CH,1
+I,Rhinoceros unicornis,live,,TR,2
+I,Rhinoceros unicornis,specimens,ml,ZA,0.95
+I,Rhinocerotidae spp.,bone carvings,,US,1
+I,Rhinocerotidae spp.,carvings,,FR,2
+I,Rhinocerotidae spp.,carvings,,HK,4
+I,Rhinocerotidae spp.,carvings,,NZ,1
+I,Rhinocerotidae spp.,horn carvings,,HK,13
+I,Rhinocerotidae spp.,horn carvings,,US,4
+I,Rhinocerotidae spp.,horn pieces,,ZA,6
+I,Rhinocerotidae spp.,horns,,ZA,4
+I,Rhinocerotidae spp.,medicine,,US,41
+I,Rhinocerotidae spp.,specimens,,KE,29
+I,Rhinocerotidae spp.,specimens,,ZA,20
+II,Ceratotherium simum,feet,,CN,16
+II,Ceratotherium simum,live,,CN,4
+II,Ceratotherium simum,live,,NA,17
+II,Ceratotherium simum,skeletons,,CN,4
+II,Ceratotherium simum,skins,,CN,4
+II,Ceratotherium simum,skulls,,CN,2
+II,Ceratotherium simum,trophies,,CN,4
+II,Ceratotherium simum,trophies,,KZ,2
+II,Ceratotherium simum,trophies,,PL,1
+II,Ceratotherium simum simum,bodies,,CN,4
+II,Ceratotherium simum simum,bodies,,GB,1
+II,Ceratotherium simum simum,feet,,CN,24
+II,Ceratotherium simum simum,feet,,SG,2
+II,Ceratotherium simum simum,feet,,US,10
+II,Ceratotherium simum simum,horns,,AT,2
+II,Ceratotherium simum simum,horns,,GB,2
+II,Ceratotherium simum simum,horns,,RO,2
+II,Ceratotherium simum simum,horns,,SG,2
+II,Ceratotherium simum simum,horns,,SK,2
+II,Ceratotherium simum simum,horns,,US,2
+II,Ceratotherium simum simum,leather products (small),,CN,8
+II,Ceratotherium simum simum,leather products (small),,KW,6
+II,Ceratotherium simum simum,live,,CN,10
+II,Ceratotherium simum simum,live,,TH,8
+II,Ceratotherium simum simum,live,,US,11
+II,Ceratotherium simum simum,live,,VN,4
+II,Ceratotherium simum simum,skin pieces,,SG,1
+II,Ceratotherium simum simum,skins,,CN,10
+II,Ceratotherium simum simum,skulls,,GB,1
+II,Ceratotherium simum simum,skulls,,SG,1
+II,Ceratotherium simum simum,specimens,,DE,132
+II,Ceratotherium simum simum,specimens,,SG,1
+II,Ceratotherium simum simum,tails,,CN,3
+II,Ceratotherium simum simum,trophies,,AT,2
+II,Ceratotherium simum simum,trophies,,CN,8
+II,Ceratotherium simum simum,trophies,,DE,2
+II,Ceratotherium simum simum,trophies,,EE,1
+II,Ceratotherium simum simum,trophies,,ES,1
+II,Ceratotherium simum simum,trophies,,HU,2
+II,Ceratotherium simum simum,trophies,,KW,10
+II,Ceratotherium simum simum,trophies,,MX,1
+II,Ceratotherium simum simum,trophies,,PL,1
+II,Ceratotherium simum simum,trophies,,RO,4
+II,Ceratotherium simum simum,trophies,,SG,1
+II,Ceratotherium simum simum,trophies,,SK,1
+II,Ceratotherium simum simum,trophies,,US,30
