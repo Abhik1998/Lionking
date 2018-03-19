@@ -345,7 +345,7 @@ function color (d){
 
 var projection = d3.geoKavrayskiy7()//d3.geoCylindricalStereographic()
     .scale(140)
-    .translate([width / 2, height / 2]);
+    .translate([width / 2, height / 2.3]);
 
 
 /*var projection = d3.geoMercator()//d3.geoCylindricalStereographic()
@@ -356,9 +356,11 @@ var path = d3.geoPath().projection(projection);
 
 svg.call(tip);
 
+
+// Make the default map: Tiger Origin 2016
 queue()
    .defer(d3.json, "world_map.json")
-   .defer(d3.csv, "csvFiles/Animals/demo/tiger_2016.csv")
+   .defer(d3.csv, "csvFiles/Animals/origin/tiger_origin_2016.csv")
    .await(ready);
 
 function ready(error, data, population) {
@@ -422,9 +424,24 @@ function zoom_actions(){
 }
 
 //Setting up buttons
+
+// Variable to be used to toggle between origin and importer for a particular animal
+var togTiger = true;
+var togElephant = false;
+var togRhino = false;
+var togParrot = false;
+
 d3.select(".BTiger").on("click", function(){
     console.log("Tiger");
-
+    
+    // Change map header to correct one
+    d3.select("#mapheader").text("Tiger Origin, 2016");
+    
+    togTiger = true;
+    togElephant = false;
+    togRhino = false;
+    togParrot = false;
+    
     d3.select(".Tiger").classed("imghidden",false);
     d3.select(".Rhino").classed("imghidden",true);
     d3.select(".Elephant").classed("imghidden",true);
@@ -432,7 +449,7 @@ d3.select(".BTiger").on("click", function(){
 
     queue()
        .defer(d3.json, "world_map.json")
-       .defer(d3.csv, "csvFiles/Animals/demo/tiger_2016.csv")
+       .defer(d3.csv, "csvFiles/Animals/origin/tiger_origin_2016.csv")
        .await(update);
 
 
@@ -441,6 +458,14 @@ d3.select(".BTiger").on("click", function(){
 d3.select(".BElephant").on("click", function(){
     console.log("Elephant");
 
+    // Change map header to correct one
+    d3.select("#mapheader").text("Elephant Origin, 2016");
+    
+    togTiger = false;
+    togElephant = true;
+    togRhino = false;
+    togParrot = false;
+    
     d3.select(".Elephant").classed("imghidden",false);
     d3.select(".Rhino").classed("imghidden",true);
     d3.select(".Tiger").classed("imghidden",true);
@@ -448,7 +473,7 @@ d3.select(".BElephant").on("click", function(){
 
     queue()
        .defer(d3.json, "world_map.json")
-       .defer(d3.csv, "csvFiles/Animals/demo/elephant_2016.csv")
+       .defer(d3.csv, "csvFiles/Animals/origin/elephant_origin_2016.csv")
        .await(update);
 
 });
@@ -456,6 +481,13 @@ d3.select(".BElephant").on("click", function(){
 d3.select(".BRhino").on("click", function(){
     console.log("Rhino");
 
+    d3.select("#mapheader").text("Rhino Origin, 2016");
+    
+    togTiger = false;
+    togElephant = false;
+    togRhino = true;
+    togParrot = false;
+    
     d3.select(".Rhino").classed("imghidden",false);
     d3.select(".Tiger").classed("imghidden",true);
     d3.select(".Elephant").classed("imghidden",true);
@@ -463,13 +495,20 @@ d3.select(".BRhino").on("click", function(){
 
     queue()
        .defer(d3.json, "world_map.json")
-       .defer(d3.csv, "csvFiles/Animals/demo/rhino_2016.csv")
+       .defer(d3.csv, "csvFiles/Animals/origin/rhino_origin_2016.csv")
        .await(update);
 });
 
 d3.select(".BParrot").on("click", function(){
     console.log("Grey Parrot");
 
+    d3.select("#mapheader").text("Grey Parrot Origin, 2016");
+    
+    togTiger = false;
+    togElephant = false;
+    togRhino = false;
+    togParrot = true;
+    
     d3.select(".Parrot").classed("imghidden",false);
     d3.select(".Rhino").classed("imghidden",true);
     d3.select(".Elephant").classed("imghidden",true);
@@ -477,10 +516,104 @@ d3.select(".BParrot").on("click", function(){
 
     queue()
        .defer(d3.json, "world_map.json")
-       .defer(d3.csv, "csvFiles/Animals/Grey_Parrot/out_2016.csv")
+       .defer(d3.csv, "csvFiles/Animals/origin/grey_parrot_origin_2016.csv")
        .await(update);
 
 });
+
+
+d3.select(".Origin").on("click", function(){
+
+    if(togTiger){
+        
+        d3.select("#mapheader").text("Tiger Origin, 2016");
+        
+        console.log("Origin for Tiger");
+        queue()
+           .defer(d3.json, "world_map.json")
+           .defer(d3.csv, "csvFiles/Animals/origin/tiger_origin_2016.csv")
+           .await(update);
+        
+    }
+    else if(togElephant){
+        
+        d3.select("#mapheader").text("Elephant Origin, 2016");
+        
+        console.log("Origin for Elephant");
+        queue()
+           .defer(d3.json, "world_map.json")
+           .defer(d3.csv, "csvFiles/Animals/origin/elephant_origin_2016.csv")
+           .await(update);
+        
+    }
+    else if(togRhino){
+        
+        d3.select("#mapheader").text("Rhino Origin, 2016");
+        
+        console.log("Origin for Rhino");
+        queue()
+           .defer(d3.json, "world_map.json")
+           .defer(d3.csv, "csvFiles/Animals/origin/rhino_origin_2016.csv")
+           .await(update);
+        
+    }
+    else{ //then togParrot is true
+        
+        d3.select("#mapheader").text("Grey Parrot Origin, 2016");
+        
+        console.log("Origin for Parrot");
+        queue()
+           .defer(d3.json, "world_map.json")
+           .defer(d3.csv, "csvFiles/Animals/origin/grey_parrot_origin_2016.csv")
+           .await(update);
+    }
+})
+
+d3.select(".Importers").on("click", function(){
+    if(togTiger){
+        
+        d3.select("#mapheader").text("Tiger Importers, 2016");
+        
+        console.log("Origin for Tiger");
+        queue()
+           .defer(d3.json, "world_map.json")
+           .defer(d3.csv, "csvFiles/Animals/demo/tiger_2016.csv")
+           .await(update);
+        
+    }
+    else if(togElephant){
+        
+        d3.select("#mapheader").text("Elephant Importers, 2016");
+        
+        console.log("Origin for Elephant");
+        queue()
+           .defer(d3.json, "world_map.json")
+           .defer(d3.csv, "csvFiles/Animals/demo/elephant_2016.csv")
+           .await(update);
+        
+    }
+    else if(togRhino){
+        
+        d3.select("#mapheader").text("Rhino Importers, 2016");
+        
+        console.log("Origin for Rhino");
+        queue()
+           .defer(d3.json, "world_map.json")
+           .defer(d3.csv, "csvFiles/Animals/demo/rhino_2016.csv")
+           .await(update);
+        
+    }
+    else{ //then togParrot is true
+        
+        d3.select("#mapheader").text("Grey Parrot Importers, 2016");
+        
+        console.log("Origin for Parrot");
+        queue()
+           .defer(d3.json, "world_map.json")
+           .defer(d3.csv, "csvFiles/Animals/demo/grey_parrot_2016.csv")
+           .await(update);
+    }
+})
 
 function update(error, data, population){
     var populationById = {};
@@ -499,23 +632,7 @@ function update(error, data, population){
             .style("opacity",0.8)
             // tooltips
             .style("stroke","white")
-            .style('stroke-width', 0.3)
-            .on('mouseover',function(d){
-              tip.show(d);
-
-              d3.select(this)
-                .style("opacity", 1)
-                .style("stroke","white")
-                .style("stroke-width",2);
-            })
-            .on('mouseout', function(d){
-              tip.hide(d);
-
-              d3.select(this)
-                .style("opacity", 0.8)
-                .style("stroke","white")
-                .style("stroke-width",0.3);
-            });
+            .style('stroke-width', 0.3);
 
     /*svg.append("path")
         .datum(topojson.mesh(data.features, function(a, b) { return a.id !== b.id; }))
@@ -525,27 +642,31 @@ function update(error, data, population){
     };
 
 // Appending Legend     
-var LegendElephant = d3.scaleThreshold()
-    .domain([1,5,182,280,371,507])
-    .range(["#fee5d9","#fcbba1","#fc9272","#fb6a4a","#de2d26","#D81E05"]);
+var LegendScale = d3.scaleThreshold()
+    .domain([5,182,280,371,507])
+    .range(["#fee5d9","#fcbba1","#fc9272","#fb6a4a","#de2d26","#9e1301"]);
+
+LegendScale.domain([5,182,280,371,507]);
 
 var svgLegend = d3.select(".Map-Legend");
 
 // Legend for Elephant
 svgLegend.append("g")
-      .attr("class", "legendElephant")
-      .attr("transform", "translate(300,30)")
-      .append("text");
+    .attr("class", "legend")
+    .attr("transform", "translate(250,30)")
+    .append("text");
 
-var legendElephant = d3.legendColor()
-      .title("Number of Ivory Products")
-      .shapeWidth(30).shapePadding(0)
-      .orient('horizontal')
-      .labelFormat(d3.format(".0f")).labels(d3.legendHelpers.thresholdLabels)
-      .scale(LegendElephant);
+var legend = d3.legendColor()
+    .title("Quantity Reported by Importer")
+    .shapeWidth(40).shapePadding(0)
+    .orient('horizontal')
+    .labelAlign("end")
+    .labelFormat(d3.format(".0f"))
+    .labels(d3.legendHelpers.thresholdLabels)
+    .scale(LegendScale);
 
-svgLegend.select(".legendElephant")
-      .call(legendElephant);
+svgLegend.select(".legend")
+    .call(legend);
 
 // Legend for Parrot
 
