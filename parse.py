@@ -35,14 +35,14 @@ for row in creader:
 		track.update({row['Country']:{args.year: int(row[args.year]) }})
 
 
-fieldnames = ["Country", args.year]
+fieldnames = ["id", "population"]
 newcsv = open(args.out, 'wb')
 
 writer = csv.DictWriter(newcsv, fieldnames=fieldnames)
 
 writer.writeheader()
 for line in list(track.keys()):
-	writer.writerow({"Country": line, args.year: track.get(line).get(args.year)})
+	writer.writerow({"id": line, "population": track.get(line).get(args.year)})
 
 
 
