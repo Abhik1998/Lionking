@@ -724,7 +724,7 @@
 
             queue()
                .defer(d3.json, "world_map.json")
-               .defer(d3.csv, "ElephantIvory.csv")
+               .defer(d3.csv, "csvFiles/Animals/demo/tiger_2016.csv")
                .await(ready);
 
             function ready(error, data, population) {
@@ -796,6 +796,10 @@
                 d3.select(".Elephant").classed("imghidden",true);
                 d3.select(".Parrot").classed("imghidden",true);
                 
+                queue()
+                   .defer(d3.json, "world_map.json")
+                   .defer(d3.csv, "csvFiles/Animals/demo/tiger_2016.csv")
+                   .await(update);
                 
                 
             });
@@ -810,7 +814,7 @@
                 
                 queue()
                    .defer(d3.json, "world_map.json")
-                   .defer(d3.csv, "csvFiles/Animals/Elephant/out_2016.csv")
+                   .defer(d3.csv, "csvFiles/Animals/demo/elephant_2016.csv")
                    .await(update);
                 
             });
@@ -822,6 +826,11 @@
                 d3.select(".Tiger").classed("imghidden",true);
                 d3.select(".Elephant").classed("imghidden",true);
                 d3.select(".Parrot").classed("imghidden",true);
+                
+                queue()
+                   .defer(d3.json, "world_map.json")
+                   .defer(d3.csv, "csvFiles/Animals/demo/rhino_2016.csv")
+                   .await(update);
             });
 
             d3.select(".BParrot").on("click", function(){
@@ -898,7 +907,7 @@
                   .title("Number of Ivory Products")
                   .shapeWidth(30).shapePadding(0)
                   .orient('horizontal')
-                  .labelFormat(d3.format(".0f"))
+                  .labelFormat(d3.format(".0f")).labels(d3.legendHelpers.thresholdLabels)
                   .scale(LegendElephant);
 
             svgLegend.select(".legendElephant")
@@ -906,7 +915,7 @@
             
             // Legend for Parrot
             
-            var LegendParrot = d3.scaleThreshold()
+            /*var LegendParrot = d3.scaleThreshold()
                 .domain([1,5,182,280,371,507])
                 .range(["#fee5d9","#fcbba1","#fc9272","#fb6a4a","#de2d26","#D81E05"]);
             
@@ -924,7 +933,7 @@
 
             svgLegend.select(".legendParrot")
                   .call(legendParrot);
-            
+            */
             /*svgLegend.select(".legend").call(legend);
             */
             
