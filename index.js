@@ -327,6 +327,11 @@ var g = svg.select("g");
 var colors = d3.scaleThreshold()
     .domain([1,5,182,280,371,507])
     .range(["#fee5d9","#fcbba1","#fc9272","#fb6a4a","#de2d26","#a50f15"]);
+/*
+var colors = d3.scaleQuantize()
+    .domain([1,507])
+    .range(["#fee5d9","#fcbba1","#fc9272","#fb6a4a","#de2d26","#a50f15"]);
+*/
 
 function color (d){
 
@@ -341,12 +346,12 @@ function color (d){
 
 /*var projection = d3.geoVanDerGrinten()//d3.geoCylindricalStereographic()
     .scale(100)
-    .translate([width / 2, height / 2]);*/
+    .translate([width / 2, height / 2]);
+*/
 
 var projection = d3.geoKavrayskiy7()//d3.geoCylindricalStereographic()
     .scale(140)
     .translate([width / 2, height / 2.3]);
-
 
 /*var projection = d3.geoMercator()//d3.geoCylindricalStereographic()
     .scale(110)
@@ -423,7 +428,7 @@ function zoom_actions(){
         .attr("scale", d3.event.scale)
 }
 
-//Setting up buttons
+// Setting up buttons
 
 // Variable to be used to toggle between origin and importer for a particular animal
 var togTiger = true;
@@ -458,7 +463,8 @@ d3.select(".BTiger").on("click", function(){
 d3.select(".BElephant").on("click", function(){
     console.log("Elephant");
     
-    /*// Demo to change scale
+    /*
+    // Demo to change scale
     LegendScale.domain([1,115]);
     svgLegend.select(".legend")
     .call(legend);
@@ -525,7 +531,6 @@ d3.select(".BParrot").on("click", function(){
        .await(update);
 
 });
-
 
 d3.select(".Origin").on("click", function(){
 
