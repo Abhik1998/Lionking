@@ -25,26 +25,32 @@ track = {}
 csvfile =  open(args.data, "rb")
 creader = csv.DictReader(csvfile)
 for row in creader:
+	if len(row['Unit']) != 0:
+		continue
 
 	if row['Term'] in args.terms.split(','):
 		if row['Country'] in list(track.keys()):
-			first_year = int(track.get(row['Country']).get(args.year))
-			track.update({row['Country']:{args.year: first_year + int(row[args.year]) }})
+			first_year = float(track.get(row['Country']).get(args.year))
+			track.update({row['Country']:{args.year: first_year + float(row[args.year]) }})
 
 			if row['Term'] in list(track.get(row['Country']).keys()):
 				existing_value = track.get(row['Country'].get(row['Term']))
-				track.get(row['Country'].update({row['Term']:existing_value + int(row[args.year])}))
+				track.get(row['Country']).update({row['Term']:existing_value + float(row[args.year])})
 			else:
-				track.get(row['Country'].update({row['Term']:int(row[args.year])}))
+				track.get(row['Country']).update({row['Term']:float(row[args.year])})
 
 			continue
 
-		track.update({row['Country']:{args.year: int(row[args.year]) }})
-		track.get(row['Country']).update({row['Term']: int(row[args.year])})
+		track.update({row['Country']:{args.year: float(row[args.year]) }})
+		track.get(row['Country']).update({row['Term']: float(row[args.year])})
 
-print track
+# print track
+# print args.terms
 
 fieldnames = ["id", "population"]
+for x in args.terms.split(','):
+	fieldnames.append(x)
+
 newcsv = open(args.out, 'wb')
 
 writer = csv.DictWriter(newcsv, fieldnames=fieldnames)
@@ -54,4 +60,4 @@ for line in list(track.keys()):
 	writer.writerow({"id": line, "population": track.get(line).get(args.year)})
 
 
-
+#print args.terms.split(',')
