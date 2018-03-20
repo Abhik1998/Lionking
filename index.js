@@ -35,10 +35,10 @@ var tip = d3.tip()
     .html(function(d) {
 
         if (isNaN(d.population)){
-            return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>"
+            return "<strong></strong><span class='details'>" + d.properties.name + "<br></span>"
         }
         else{
-            return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Ivory Products: </strong><span class='details'>" + format(Math.floor(d.population)) +"</span>";
+            return "<strong></strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Ivory Products: </strong><span class='details'>" + format(Math.floor(d.population)) +"</span>";
         }
 
     });
@@ -268,7 +268,6 @@ const annotationsGreyParrot = [
 },
 ].map(function(d){ d.color = "#D81E05"; return d});
 
-
 const makeAnnotationsTiger = d3.annotation()
     .type(d3.annotationLabel)
     .annotations(annotationsTiger)
@@ -357,8 +356,8 @@ var g = svg.select("g");
 
 // Manipulating colours
 var colors = d3.scaleQuantize()
-    .domain([1,507])
-    .range(["#fee5d9","#fcbba1","#fc9272","#fb6a4a","#de2d26","#a50f15"]);
+    .domain([1,355])
+    .range(["#fcbba1","#fc9272","#fb6a4a","#ef3b2c", "#cb181d", "#99000d"]);
 
 function color (d){
 
@@ -412,16 +411,17 @@ function ready(error, data, population) {
                 return color(populationById[d.id]);
             })
             .style('stroke', 'darkgrey')
-            .style('stroke-width', 1.5)
+            .style('stroke-width', 1)
             .style("opacity",0.8)
             // tooltips
             .style("stroke","white")
-            .style('stroke-width', 0.3)
+            .style('stroke-width', 1)
             .on('mouseover',function(d){
               tip.show(d);
 
               d3.select(this)
                 .style("opacity", 1)
+                .style("fill","yellow")
                 .style("stroke","white")
                 .style("stroke-width",2);
             })
@@ -430,8 +430,12 @@ function ready(error, data, population) {
 
               d3.select(this)
                 .style("opacity", 0.8)
+                .style("fill",function(d) {
+                //console.log(populationById[d.id])
+                return color(populationById[d.id]);
+            })
                 .style("stroke","white")
-                .style("stroke-width",0.3);
+                .style("stroke-width",1);
             });
 
     /*svg.append("path")
@@ -464,27 +468,24 @@ var togRhino = false;
 var togParrot = false;
 
 d3.select(".BTiger").on("click", function(){
+    togTiger = true;
+    togElephant = false;
+    togRhino = false;
+    togParrot = false;
+    
     console.log("Tiger");
-
+    d3.select("#animalimage").attr("src","images/tiger.png").style("opacity","0").transition().duration(800).style("opacity","0.6");
     // Change map header to correct one
     d3.select("#mapheader").text("Origin of Tiger Bone Products, 2016");
     // Changing scale
-    colors.domain([1,507]);
+    colors.domain([1,355]);
     
     legend.title("Number of Tiger Bone Products")
     
     svgLegend.select(".legend")
     .call(legend);
 
-    togTiger = true;
-    togElephant = false;
-    togRhino = false;
-    togParrot = false;
 
-    d3.select(".Tiger").classed("imghidden",false);
-    d3.select(".Rhino").classed("imghidden",true);
-    d3.select(".Elephant").classed("imghidden",true);
-    d3.select(".Parrot").classed("imghidden",true);
     d3.select(".annotationTiger").classed("hidden", false);
     d3.select(".annotationGreyParrot").classed("hidden", true);
     d3.select(".annotationTiger").selectAll("g.annotation-connector, g.annotation-note").classed("hidden", true);
@@ -502,8 +503,14 @@ d3.select(".BTiger").on("click", function(){
 });
 
 d3.select(".BElephant").on("click", function(){
-    console.log("Elephant");
+    togTiger = false;
+    togElephant = true;
+    togRhino = false;
+    togParrot = false;
 
+    d3.select("#animalimage").attr("src","images/elephant.png").style("opacity","0").transition().duration(800).style("opacity","0.6");
+    console.log("Elephant");
+    
     // Change map header to correct one
     d3.select("#mapheader").text("Origin of Elephant Products, 2016");
     
@@ -513,15 +520,7 @@ d3.select(".BElephant").on("click", function(){
     svgLegend.select(".legend")
     .call(legend);
     
-    togTiger = false;
-    togElephant = true;
-    togRhino = false;
-    togParrot = false;
-
-    d3.select(".Elephant").classed("imghidden",false);
-    d3.select(".Rhino").classed("imghidden",true);
-    d3.select(".Tiger").classed("imghidden",true);
-    d3.select(".Parrot").classed("imghidden",true);
+    
     d3.select(".annotationTiger").classed("hidden", true);
     d3.select(".annotationRhino").classed("hidden", true);
     d3.select(".annotationGreyParrot").classed("hidden", true);
@@ -538,8 +537,13 @@ d3.select(".BElephant").on("click", function(){
 });
 
 d3.select(".BRhino").on("click", function(){
+    togTiger = false;
+    togElephant = false;
+    togRhino = true;
+    togParrot = false;
+    
     console.log("Rhino");
-
+    d3.select("#animalimage").attr("src","images/rhino.png").style("opacity","0").transition().duration(800).style("opacity","0.6");
     d3.select("#mapheader").text("Origin of Rhino Horn Products, 2016");
     
     // Demo to change scale
@@ -548,15 +552,6 @@ d3.select(".BRhino").on("click", function(){
     svgLegend.select(".legend")
     .call(legend);
 
-    togTiger = false;
-    togElephant = false;
-    togRhino = true;
-    togParrot = false;
-
-    d3.select(".Rhino").classed("imghidden",false);
-    d3.select(".Tiger").classed("imghidden",true);
-    d3.select(".Elephant").classed("imghidden",true);
-    d3.select(".Parrot").classed("imghidden",true);
     d3.select(".annotationTiger").classed("hidden", true);
     d3.select(".annotationElephant").classed("hidden", true);
     d3.select(".annotationGreyParrot").classed("hidden", true);
@@ -572,7 +567,7 @@ d3.select(".BRhino").on("click", function(){
 
 d3.select(".BParrot").on("click", function(){
     console.log("Grey Parrot");
-
+    d3.select("#animalimage").attr("src","images/greyparrot.png").style("opacity","0").transition().duration(800).style("opacity","0.6");
     d3.select("#mapheader").text("Origin of Live Grey Parrots, 2016");
     // Changing Scales
     colors.domain([1,664]);
@@ -766,7 +761,7 @@ function update(error, data, population){
             .style("opacity",0.8)
             // tooltips
             .style("stroke","white")
-            .style('stroke-width', 0.3);
+            .style('stroke-width', 1);
 
     /*svg.append("path")
         .datum(topojson.mesh(data.features, function(a, b) { return a.id !== b.id; }))
