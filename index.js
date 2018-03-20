@@ -213,7 +213,7 @@ const annotationsElephant = [
 {
   type: d3.annotationCalloutCircle,
   note: {
-    label: "Bones are used for ..",
+    label: "Bones are used as trophies for various purposes",
     title: "BONES",
     wrap: 100
   },
@@ -229,23 +229,7 @@ const annotationsElephant = [
 {
   type: d3.annotationCalloutCircle,
   note: {
-    label: "",
-    title: "EARS",
-    wrap: 100
-  },
-  //settings for the subject, in this case the circle radius
-  subject: {
-    radius: 5
-  },
-  x: 130,
-  y: 223,
-  dy: -50,
-  dx: 50
-},
-{
-  type: d3.annotationCalloutCircle,
-  note: {
-    label: "",
+    label: "Elephant skin is used to make a variety of products such as wallets covers etc",
     title: "SKIN",
     wrap: 100
   },
@@ -257,38 +241,6 @@ const annotationsElephant = [
   y: 270,
   dy: -100,
   dx: 100
-},
-{
-  type: d3.annotationCalloutCircle,
-  note: {
-    label: "",
-    title: "FEET",
-    wrap: 100
-  },
-  //settings for the subject, in this case the circle radius
-  subject: {
-    radius: 5
-  },
-  x: 175,
-  y: 535,
-  dy: -10,
-  dx: 120
-},
-{
-  type: d3.annotationCalloutCircle,
-  note: {
-    label: "",
-    title: "TRUNK",
-    wrap: 100
-  },
-  //settings for the subject, in this case the circle radius
-  subject: {
-    radius: 5
-  },
-  x: 280,
-  y: 480,
-  dy: -10,
-  dx: 30
 },
 ].map(function(d){ d.color = "#D81E05"; return d});
 
@@ -312,7 +264,7 @@ const annotationsRhino = [
 {
   type: d3.annotationCalloutCircle,
   note: {
-    label: "Bones are used for",
+    label: "Bones are used as trophies by hunters and in traditional chinese medicine",
     title: "BONES",
     wrap: 100
   },
@@ -328,23 +280,7 @@ const annotationsRhino = [
 {
   type: d3.annotationCalloutCircle,
   note: {
-    label: "The live body of a rhino is used for",
-    title: "LIVE BODY",
-    wrap: 100
-  },
-  //settings for the subject, in this case the circle radius
-  subject: {
-    radius: 5
-  },
-  x: 130,
-  y: 280,
-  dy: -110,
-  dx: 110
-},
-{
-  type: d3.annotationCalloutCircle,
-  note: {
-    label: "Rhino skin is used for",
+    label: "Rhino skin is used for variety of leather products",
     title: "SKIN",
     wrap: 100
   },
@@ -356,22 +292,6 @@ const annotationsRhino = [
   y: 270,
   dy: -100,
   dx: 100
-},
-{
-  type: d3.annotationCalloutCircle,
-  note: {
-    label: "Rhino feet are used for...",
-    title: "FEET",
-    wrap: 100
-  },
-  //settings for the subject, in this case the circle radius
-  subject: {
-    radius: 5
-  },
-  x: 200,
-  y: 500,
-  dy: -10,
-  dx: 120
 },
 ].map(function(d){ d.color = "#D81E05"; return d});
 
@@ -391,22 +311,6 @@ const annotationsGreyParrot = [
   y: 230,
   dy: -50,
   dx: 50
-},
-{
-  type: d3.annotationCalloutCircle,
-  note: {
-    label: "Grey Parrot feathers are used for....",
-    title: "FEATHERS",
-    wrap: 100
-  },
-  //settings for the subject, in this case the circle radius
-  subject: {
-    radius: 7
-  },
-  x: 150,
-  y: 330,
-  dy: -100,
-  dx: 100
 },
 ].map(function(d){ d.color = "#D81E05"; return d});
 
