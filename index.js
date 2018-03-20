@@ -161,37 +161,7 @@ const annotationsTiger = [
   y: 310,
   dy: -100,
   dx: -100
-},
-{
-  type: d3.annotationCalloutCircle,
-  note: {
-    label: "Tiger skin is used making clothing and for medicinal use",
-    title: "SKIN",
-    wrap: 100
-  },
-  //settings for the subject, in this case the circle radius
-  subject: {
-    radius: 7
-  },
-  x: 160,
-  y: 310,
-  dy: -60,
-  dx: -70},
-  {
-    type: d3.annotationCalloutCircle,
-    note: {
-      label: "The live animal is used for entertainment and as pets",
-      title: "LIVE ANIMAL",
-      wrap: 100
-    },
-    //settings for the subject, in this case the circle radius
-    subject: {
-      radius: 7
-    },
-    x: 200,
-    y: 300,
-    dy: -100,
-    dx: -100},].map(function(d){ d.color = "#D81E05"; return d});
+},].map(function(d){ d.color = "#D81E05"; return d});
 
 const annotationsElephant = [
 {
@@ -276,22 +246,6 @@ const annotationsRhino = [
   y: 222,
   dy: -50,
   dx: -50
-},
-{
-  type: d3.annotationCalloutCircle,
-  note: {
-    label: "Rhino skin is used for variety of leather products",
-    title: "SKIN",
-    wrap: 100
-  },
-  //settings for the subject, in this case the circle radius
-  subject: {
-    radius: 5
-  },
-  x: 50,
-  y: 270,
-  dy: -100,
-  dx: 100
 },
 ].map(function(d){ d.color = "#D81E05"; return d});
 
