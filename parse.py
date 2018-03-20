@@ -44,14 +44,14 @@ for row in creader:
 
 print track
 
-fieldnames = ["id", "population"]
+fieldnames = ["id", "population","tusks", "ivory carvings","ivory pieces", "piano keys", "jewellery - ivory", "teeth"]
 newcsv = open(args.out, 'wb')
 
 writer = csv.DictWriter(newcsv, fieldnames=fieldnames)
 
 writer.writeheader()
 for line in list(track.keys()):
-	writer.writerow({"id": line, "population": track.get(line).get(args.year)})
+	writer.writerow({"id": line, "population": track.get(line).get(args.year), "tusks": track.get(line).get("tusks")})
 
 
 
