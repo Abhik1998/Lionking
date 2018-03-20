@@ -69,9 +69,9 @@
             
             /* Defining buttons to toggle map */
             .Map-Toggler{
-                background-color: #D81E05; /* This is whitesmoke so as to mask the artefacts around the buttons */
-                border: none;
-                color: white;
+                background-color: white; /* This is whitesmoke so as to mask the artefacts around the buttons */
+                border: #D81E05 1px solid;
+                color: #D81E05;
                 padding: 0px;
                 text-align: center;
                 text-decoration: none;
@@ -92,12 +92,13 @@
             }
             
             .Map-Toggler:hover {
-                background-color: #D81E05;
+                background-color: whitesmoke;
                 opacity: 1;
             }
 
             .Map-Toggler:active {
-              background-color: #D81E05;
+              background-color: white;
+                border: #D81E05 1px solid;
               box-shadow: 0 5px #666;
               opacity: 1;
               transform: translate(262.5%,-60%) translateY(1px);
