@@ -469,7 +469,7 @@ d3.select(".BTiger").on("click", function(){
     // Change map header to correct one
     d3.select("#mapheader").text("Origin of Tiger Bone Products");
     // Changing scale
-    colors.domain([1,400]);
+    colors.domain([0,400]);
     
     legend.title("Number of Tiger Bone Products")
     
@@ -506,7 +506,7 @@ d3.select(".BElephant").on("click", function(){
     d3.select("#mapheader").text("Origin of Ivory Products");
     
     // Demo to change scale
-    colors.domain([1,150]);
+    colors.domain([0,150]);
     legend.title("Number of Ivory Products")
     svgLegend.select(".legend")
     .call(legend);
@@ -538,7 +538,7 @@ d3.select(".BRhino").on("click", function(){
     d3.select("#mapheader").text("Origin of Rhino Horn Products");
     
     // Demo to change scale
-    colors.domain([1,150]);
+    colors.domain([0,150]);
     legend.title("Number of Rhino Horn Products")
     svgLegend.select(".legend")
     .call(legend);
@@ -561,7 +561,7 @@ d3.select(".BParrot").on("click", function(){
     d3.select("#animalimage").attr("src","images/greyparrot.png").style("opacity","0").transition().duration(800).style("opacity","0.6");
     d3.select("#mapheader").text("Origin of Live Grey Parrots");
     // Changing Scales
-    colors.domain([1,700]);
+    colors.domain([0,700]);
     legend.title("Number of Live Grey Parrots")
     svgLegend.select(".legend")
     .call(legend);
