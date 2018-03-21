@@ -33,12 +33,12 @@ var tip = d3.tip()
     .attr('class', 'd3-tip')
     .offset([-10, 0])
     .html(function(d) {
-
+        //console.log(d.bodies);
         if (isNaN(d.population)){
             return "<strong></strong><span class='details'>" + d.properties.name + "<br></span>"
         }
         else{
-            return "<strong></strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Ivory Products: </strong><span class='details'>" + format(Math.floor(d.population)) +"</span>";
+            return "<strong></strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Total: </strong><span class='details'>" + format(Math.floor(d.population)) +"</span>";
         }
 
     });
@@ -336,10 +336,6 @@ d3.select("svg")
   .call(makeAnnotationsGreyParrot);
 
 d3.select(".annotationGreyParrot").classed("hidden", true);
-
-
-
-
 
 // Only defined for projection, not used anywhere else
 var margin = {top: 0, right: 0, bottom: 0, left: 0},
