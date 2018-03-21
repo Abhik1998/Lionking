@@ -31,15 +31,17 @@
             .columnMap {
                 float: left;
                 width: 55%;
-                height: 500px;
+                height: 650px;
                 padding: 10px;
             }
 
             .columnFooter {
                 float: left;
-                width: 33.33%;
+                width: 25%;
                 padding: 10px;
-                padding-left: 0px;
+                padding-left: 10px;
+                height: 40%;
+                line-height: 30px;
             }
 
             /* Clear floats after the columns */
@@ -88,7 +90,7 @@
                 padding-right: 10px;
                 opacity: 0.8;
                 border-radius: 20px;
-                transform: translate(262.5%,-60%);
+                transform: translate(212.5%,-60%);
             }
             
             .Map-Toggler:hover {
@@ -101,7 +103,7 @@
               border: #D81E05 1px solid;
               box-shadow: 0 5px #666;
               opacity: 1;
-              transform: translate(262.5%,-60%) translateY(1px);
+              transform: translate(212.5%,-60%) translateY(1px);
             }
 
             /*Defining the Map SVG*/
@@ -238,6 +240,11 @@
             .details{
                 color:black;
             }
+            
+            .details-country{
+                display: block;
+                text-align: center;
+            }
 
             /* For annotations and other elements - Annotations for human parts */
             .annotation path {
@@ -297,7 +304,7 @@
             
             .legendTitle{
                 font-weight: bold;
-                transform: translate(40px,0px);
+                transform: translate(0px,0px);
                 fill: #757a82;
                 font-size: 12px;
             }
@@ -313,7 +320,7 @@
                 margin:0 auto;
                 
 
-                width:80%;
+                width:100%;
                 background-color:rgb(241,241,241);  
                 border-bottom-right-radius:2em;
                 border-bottom-left-radius:2em;
@@ -347,10 +354,26 @@
             }
             
             #code-sources{
-                
-                transform: translate(1000px, -100px)
+                width: 25%;
+                /*transform: translate(1000px, -100px)*/
             }
             
+            #submitted{
+                width: 25%;
+            }
+            
+            #data{
+                width: 25%;
+            }
+            
+            #relevent{
+                width: 25%
+            }
+            
+            .footer{
+                margin-top: 20px;
+                transform: translate(0%,20%);
+            }
             
             
         </style>
@@ -418,71 +441,136 @@
             </div>
             <div class="columnMap">
 
-                <h2 id="mapheader">Origin of Tiger Bone Products, 2016</h2>
+                <h2 id="mapheader">Origin of Tiger Bone Products</h2>
                 <svg class = "Map-Container" style = "height: 341px"></svg>
-                <svg class = "Map-Legend" style = "width: 100%; height:150px; transform: translate(0%,0%)"></svg>
+                <svg class = "Map-Legend" style = "width: 100%; height:150px; transform: translate(5%,0%)"></svg>
                 <div style="width: 100%; height: 10%">
                     
                     <button class="Map-Toggler Origin">Origin</button>
                     <button class="Map-Toggler Importers">Importers</button>
+                    <button class="Map-Toggler Exporters">Exporters</button>
                 
                 </div>
             </div>
 
         </div>
+        
+        <div id ="ending" class="footer">
+        
+            <div id = "endingtext"> 
+            
+                <p><b>Created by: </b>Karthik Balakrishna, Ishaan Paranjape, Pranav Yerabati</p>
+                <p><b>In Collaboration with </b>Professor Suresh Lodha</p>                
+                <p><b>For:</b> CMPS 263, Winter 18</p>
+            
+            </div>
+            
+            <div class="columnFooter">
+            
+                <p><em>Files Submitted</em></p>
+                    <ul>
+                        <li>Data collected from <a href="https://trade.cites.org/#">Cites Database</a> </li>
+
+                        <li> <a href="https://www.havocscope.com/exotic-animals-for-sale/">Animals for Sale</a> </li>
+
+                        <li><a href = "https://www.havocscope.com/illegal-wildlife-trade/">Illegal Trade</a></li>
+                    </ul>
+                
+            </div>
+            <div class="columnFooter">
+            
+                <p><em>Data Sources</em></p>
+                    <ul>
+                        <li>Data collected from <a href="https://trade.cites.org/#">Cites Database</a></li>
+
+                        <li> <a href="https://www.havocscope.com/exotic-animals-for-sale/">Animals for Sale</a> </li>
+
+                        <li><a href = "https://www.havocscope.com/illegal-wildlife-trade/">Illegal Trade</a></li>
+                    </ul>
+                
+            </div>
+            <div class="columnFooter">
+            
+                <p><em>Relevant Visualisations</em></p>
+                    <ul>
+                        <li>Data collected from <a href="https://trade.cites.org/#">Cites Database</a> </li>
+
+                        <li> <a href="https://www.havocscope.com/exotic-animals-for-sale/">Animals for Sale</a> </li>
+
+                        <li><a href = "https://www.havocscope.com/illegal-wildlife-trade/">Illegal Trade</a></li>
+                    </ul>
+                
+            </div>
+            <div class="columnFooter">
+            
+                <p><em>Code Sources</em></p>
+                    <ul>
+                        <li>Data collected from <a href="https://trade.cites.org/#">Cites Database</a> </li>
+
+                        <li> <a href="https://www.havocscope.com/exotic-animals-for-sale/">Animals for Sale</a> </li>
+
+                        <li><a href = "https://www.havocscope.com/illegal-wildlife-trade/">Illegal Trade</a></li>
+                    </ul>
+                
+            </div>
+        
+        </div>
 
         <div id="ending" style="transform: translate(0,200px)">
             
             <div class = "row">
-
-                
-            
-
-        </div>
-       <div id = "endingtext"> 
-                    <p><b>Created by: </b>Karthik Balakrishna, Ishaan Paranjape, Pranav Yerabati</p>
-                    <p><b>In Collaboration with </b>Professor Suresh Lodha</p>
-                    <p><b>For:</b> CMPS 263, Winter 18</p>
-                    
-                    
-                </div> 
+            </div>
+       
+             
             
             <div id="references" style="margin-left: 20px; line-height: 1.25; float: left">
-                <p><em>Files Submitted</em></p>
-                <ul>
+                
+                <div id="submitted"><p><em>Files Submitted</em></p>
+                
+                    <ul>
                     
-                </ul>
                 
-            <div id="data" style="transform: translate(450px, -40px) ">
-                <p><em>Data Sources</em></p>
-                <ul>
-                    <li>Data collected from <a href="https://trade.cites.org/#">Cites Database</a> </li>
-                
-                    <li> <a href="https://www.havocscope.com/exotic-animals-for-sale/">Animals for Sale</a> </li>
+                    </ul>
                     
-                    <li><a href = "https://www.havocscope.com/illegal-wildlife-trade/">Illegal Trade</a></li>
-                </ul>
+                </div>
                 
-            </div>
-                
-            <div id="relevent" style="transform: translate(950px, -150px) ">
-                
-                <p><em>Relevent Visualization Sources</em></p>
-                
-                <ul>
-                    <li> D3 World Map by <a href="http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f">Micah Stubbs</a> </li>
-                
-                </ul>
+                <div id="data" style="transform: translate(450px, -40px) ">
+                    <p><em>Data Sources</em></p>
+                    <ul>
+                        <li>Data collected from <a href="https://trade.cites.org/#">Cites Database</a> </li>
 
-            </div>
+                        <li> <a href="https://www.havocscope.com/exotic-animals-for-sale/">Animals for Sale</a> </li>
+
+                        <li><a href = "https://www.havocscope.com/illegal-wildlife-trade/">Illegal Trade</a></li>
+                    </ul>
+
+                </div>
+
+                <div id="relevent" style="transform: translate(950px, -150px) ">
+
+                    <p><em>Relevent Visualization Sources</em></p>
+
+                    <ul>
+                        <li> D3 World Map by <a href="http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f">Micah Stubbs</a> </li>
+
+                    </ul>
+
+                </div>
+            
+                <div id="code-sources" style="transform: translate(1000px,-100px)">
                 
-            <div id="code-sources" style="transform: translate(1000px,-100px)"></div>
-                <p><em>COde Sources</em></p>
+                    <p><em>COde Sources</em></p>
                 
-                <ul>
-                    <li></li>
                 
-                </ul>
+                    <ul>
+                    
+                        <li></li>
+                
+                    </ul>
+                
+            
+                </div>
+            
             </div>
             
         </div>

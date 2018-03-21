@@ -35,10 +35,10 @@ var tip = d3.tip()
     .html(function(d) {
         //console.log(d.bodies);
         if (isNaN(d.population)){
-            return "<strong></strong><span class='details'>" + d.properties.name + "<br></span>"
+            return "<strong></strong><span class='details-country' style='text-align: center'>" + d.properties.name + "<br></span>"
         }
         else{
-            return "<strong></strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Total: </strong><span class='details'>" + format(Math.floor(d.population)) +"</span>";
+            return "<strong></strong><span class='details-country'>" + d.properties.name + "<br></span>" + "<strong>Total: </strong><span class='details'>" + format(Math.floor(d.population)) +"</span>";
         }
 
     });
@@ -352,8 +352,8 @@ var g = svg.select("g");
 
 // Manipulating colours
 var colors = d3.scaleQuantize()
-    .domain([1,355])
-    .range(["#fcbba1","#fc9272","#fb6a4a","#ef3b2c", "#cb181d", "#99000d"]);
+    .domain([0,400])
+    .range(["#fcbba1","#fb6a4a","#ef3b2c", "#cb181d","#67000d"]);
 
 function color (d){
 
@@ -408,7 +408,7 @@ function ready(error, data, population) {
             })
             .style('stroke', 'darkgrey')
             .style('stroke-width', 1)
-            .style("opacity",0.8)
+            .style("opacity",1)
             // tooltips
             .style("stroke","white")
             .style('stroke-width', 1)
@@ -416,8 +416,7 @@ function ready(error, data, population) {
               tip.show(d);
 
               d3.select(this)
-                .style("opacity", 1)
-                .style("fill","yellow")
+                .style("opacity", 0.8)
                 .style("stroke","white")
                 .style("stroke-width",2);
             })
@@ -425,11 +424,7 @@ function ready(error, data, population) {
               tip.hide(d);
 
               d3.select(this)
-                .style("opacity", 0.8)
-                .style("fill",function(d) {
-                //console.log(populationById[d.id])
-                return color(populationById[d.id]);
-            })
+                .style("opacity", 1)
                 .style("stroke","white")
                 .style("stroke-width",1);
             });
@@ -472,9 +467,9 @@ d3.select(".BTiger").on("click", function(){
     console.log("Tiger");
     d3.select("#animalimage").attr("src","images/tiger.png").style("opacity","0").transition().duration(800).style("opacity","0.6");
     // Change map header to correct one
-    d3.select("#mapheader").text("Origin of Tiger Bone Products, 2016");
+    d3.select("#mapheader").text("Origin of Tiger Bone Products");
     // Changing scale
-    colors.domain([1,355]);
+    colors.domain([1,400]);
     
     legend.title("Number of Tiger Bone Products")
     
@@ -508,10 +503,10 @@ d3.select(".BElephant").on("click", function(){
     console.log("Elephant");
     
     // Change map header to correct one
-    d3.select("#mapheader").text("Origin of Elephant Products, 2016");
+    d3.select("#mapheader").text("Origin of Ivory Products");
     
     // Demo to change scale
-    colors.domain([1,115]);
+    colors.domain([1,150]);
     legend.title("Number of Ivory Products")
     svgLegend.select(".legend")
     .call(legend);
@@ -540,10 +535,10 @@ d3.select(".BRhino").on("click", function(){
     
     console.log("Rhino");
     d3.select("#animalimage").attr("src","images/rhino.png").style("opacity","0").transition().duration(800).style("opacity","0.6");
-    d3.select("#mapheader").text("Origin of Rhino Horn Products, 2016");
+    d3.select("#mapheader").text("Origin of Rhino Horn Products");
     
     // Demo to change scale
-    colors.domain([1,127]);
+    colors.domain([1,150]);
     legend.title("Number of Rhino Horn Products")
     svgLegend.select(".legend")
     .call(legend);
@@ -564,9 +559,9 @@ d3.select(".BRhino").on("click", function(){
 d3.select(".BParrot").on("click", function(){
     console.log("Grey Parrot");
     d3.select("#animalimage").attr("src","images/greyparrot.png").style("opacity","0").transition().duration(800).style("opacity","0.6");
-    d3.select("#mapheader").text("Origin of Live Grey Parrots, 2016");
+    d3.select("#mapheader").text("Origin of Live Grey Parrots");
     // Changing Scales
-    colors.domain([1,664]);
+    colors.domain([1,700]);
     legend.title("Number of Live Grey Parrots")
     svgLegend.select(".legend")
     .call(legend);
@@ -600,9 +595,9 @@ d3.select(".Origin").on("click", function(){
 
     if(togTiger){
 
-        d3.select("#mapheader").text("Origin of Tiger Bone Products, 2016");
+        d3.select("#mapheader").text("Origin of Tiger Bone Products");
         // Changing scale
-        colors.domain([1,507]);
+        colors.domain([0,400]);
 
         legend.title("Number of Tiger Bone Products")
 
@@ -619,10 +614,10 @@ d3.select(".Origin").on("click", function(){
     else if(togElephant){
 
         // Change map header to correct one
-        d3.select("#mapheader").text("Origin of Ivory Products, 2016");
+        d3.select("#mapheader").text("Origin of Ivory Products");
 
         // Demo to change scale
-        colors.domain([1,115]);
+        colors.domain([0,150]);
         legend.title("Number of Ivory Products")
         svgLegend.select(".legend")
         .call(legend);
@@ -635,9 +630,12 @@ d3.select(".Origin").on("click", function(){
 
     }
     else if(togRhino){
-
+        
+        // Change map header to correct one
+        d3.select("#mapheader").text("Origin of Rhino Horn Products");
+        
         // Demo to change scale
-        colors.domain([1,127]);
+        colors.domain([0,150]);
         legend.title("Number of Rhino Horn Products")
         svgLegend.select(".legend")
         .call(legend);
@@ -651,9 +649,9 @@ d3.select(".Origin").on("click", function(){
     }
     else{ //then togParrot is true
 
-        d3.select("#mapheader").text("Origin of Live Grey Parrots, 2016");
+        d3.select("#mapheader").text("Origin of Live Grey Parrots");
         // Changing Scales
-        colors.domain([1,664]);
+        colors.domain([0,700]);
         legend.title("Number of Live Grey Parrots")
         svgLegend.select(".legend")
         .call(legend);
@@ -669,11 +667,11 @@ d3.select(".Origin").on("click", function(){
 d3.select(".Importers").on("click", function(){
     if(togTiger){
 
-        d3.select("#mapheader").text("Importers of Tiger Bone Products, 2016");
+        d3.select("#mapheader").text("Importers of Tiger Bone Products");
         // Changing scale
-        colors.domain([1,1730]);
+        colors.domain([0,1750]);
 
-        legend.title("Quantity of Tiger Bone Products reported")
+        legend.title("Number of Tiger Bone Products")
 
         svgLegend.select(".legend")
         .call(legend);
@@ -687,11 +685,11 @@ d3.select(".Importers").on("click", function(){
     }
     else if(togElephant){
 
-        d3.select("#mapheader").text("Importers of Ivory Products, 2016");
+        d3.select("#mapheader").text("Importers of Ivory Products");
         // Changing scale
-        colors.domain([1,2676]);
+        colors.domain([0,2700]);
 
-        legend.title("Quantity of Ivory Products reported")
+        legend.title("Number of Ivory Products")
 
         svgLegend.select(".legend")
         .call(legend);
@@ -705,11 +703,11 @@ d3.select(".Importers").on("click", function(){
     }
     else if(togRhino){
 
-        d3.select("#mapheader").text("Importers of Rhino Horn Products, 2016");
+        d3.select("#mapheader").text("Importers of Rhino Horn Products");
         // Changing scale
-        colors.domain([1,1862]);
+        colors.domain([0,2000]);
 
-        legend.title("Quantity of Rhino Horn Products reported")
+        legend.title("Number of Rhino Horn Products")
 
         svgLegend.select(".legend")
         .call(legend);
@@ -723,11 +721,11 @@ d3.select(".Importers").on("click", function(){
     }
     else{ //then togParrot is true
 
-        d3.select("#mapheader").text("Importers of Live Grey Parrots, 2016");
+        d3.select("#mapheader").text("Importers of Live Grey Parrots");
         // Changing scale
-        colors.domain([1,28308]);
+        colors.domain([0,28350]);
 
-        legend.title("Quantity of Live Grey Parrots reported")
+        legend.title("Number of Live Grey Parrots")
 
         svgLegend.select(".legend")
         .call(legend);
@@ -739,6 +737,80 @@ d3.select(".Importers").on("click", function(){
            .await(update);
     }
 })
+
+d3.select(".Exporters").on("click", function(){
+    if(togTiger){
+
+        d3.select("#mapheader").text("Exporters of Tiger Bone Products");
+        // Changing scale
+        colors.domain([0,550]);
+
+        legend.title("Number of Tiger Bone Products")
+
+        svgLegend.select(".legend")
+        .call(legend);
+
+        console.log("Origin for Tiger");
+        queue()
+           .defer(d3.json, "world_map.json")
+           .defer(d3.csv, "csvFiles/Animals/demo/exports/tiger_2016.csv")
+           .await(update);
+
+    }
+    else if(togElephant){
+
+        d3.select("#mapheader").text("Exporters of Ivory Products");
+        // Changing scale
+        colors.domain([0,5000]);
+
+        legend.title("Number of Ivory Products")
+
+        svgLegend.select(".legend")
+        .call(legend);
+
+        console.log("Origin for Elephant");
+        queue()
+           .defer(d3.json, "world_map.json")
+           .defer(d3.csv, "csvFiles/Animals/demo/exports/elephant_2016.csv")
+           .await(update);
+
+    }
+    else if(togRhino){
+
+        d3.select("#mapheader").text("Exporters of Rhino Horn Products");
+        // Changing scale
+        colors.domain([0,2000]);
+
+        legend.title("Number of Rhino Horn Products")
+
+        svgLegend.select(".legend")
+        .call(legend);
+
+        console.log("Origin for Rhino");
+        queue()
+           .defer(d3.json, "world_map.json")
+           .defer(d3.csv, "csvFiles/Animals/demo/exports/rhino_2016.csv")
+           .await(update);
+
+    }
+    else{ //then togParrot is true
+
+        d3.select("#mapheader").text("Exporters of Live Grey Parrots");
+        // Changing scale
+        colors.domain([0,28350]);
+
+        legend.title("Number of Live Grey Parrots")
+
+        svgLegend.select(".legend")
+        .call(legend);
+
+        console.log("Origin for Parrot");
+        queue()
+           .defer(d3.json, "world_map.json")
+           .defer(d3.csv, "csvFiles/Animals/Grey_Parrot/out_2015.csv")
+           .await(update);
+    }
+});
 
 function update(error, data, population){
     var populationById = {};
@@ -754,7 +826,7 @@ function update(error, data, population){
             })
             .style('stroke', 'darkgrey')
             .style('stroke-width', 1.5)
-            .style("opacity",0.8)
+            .style("opacity",1)
             // tooltips
             .style("stroke","white")
             .style('stroke-width', 1);
