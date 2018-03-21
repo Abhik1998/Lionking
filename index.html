@@ -306,6 +306,52 @@
                 color: #757a82;
             }
             
+            #ending{
+                height:400px;
+                height:auto;
+                min-height:300px;
+                margin:0 auto;
+                
+
+                width:80%;
+                background-color:rgb(241,241,241);  
+                border-bottom-right-radius:2em;
+                border-bottom-left-radius:2em;
+                border-top-left-radius:2em;
+                border-top-right-radius:2em;
+
+                font-size: 16px; 
+                font-family: sans-serif;
+                line-height: 70%;   
+
+            }
+
+            #endingtext{
+                padding: 10px;
+                width:1000px;
+                margin:0 auto;
+                text-align:center;
+            }
+
+            #References{
+                margin:0px 80px 0px 80px;
+            }
+
+
+            #last{
+                margin:auto;
+                width:80%;
+                padding-top: 2px;
+                font-family: sans-serif;
+                line-height: 20px;    
+            }
+            
+            #code-sources{
+                
+                transform: translate(1000px, -100px)
+            }
+            
+            
             
         </style>
 
@@ -385,20 +431,60 @@
 
         </div>
 
-        <div class="footer">
-        
+        <div id="ending" style="transform: translate(0,200px)">
+            
             <div class = "row">
 
-                <div class = "columnFooter"></div>
-                <div class = "columnFooter"></div>
-                <div class = "columnFooter"></div>
-
-                <p><b>Created by: </b>Karthik Balakrishna, Ishaan Paranjape, Pranav Venkat</p>
-                <p><b>In Collaboration with </b>Professor. Suresh Lodha</p>
-                <p><b>For:</b> CMPS 263, Winter 18</p>
+                
+            
 
         </div>
-       
+       <div id = "endingtext"> 
+                    <p><b>Created by: </b>Karthik Balakrishna, Ishaan Paranjape, Pranav Yerabati</p>
+                    <p><b>In Collaboration with </b>Professor Suresh Lodha</p>
+                    <p><b>For:</b> CMPS 263, Winter 18</p>
+                    
+                    
+                </div> 
+            
+            <div id="references" style="margin-left: 20px; line-height: 1.25; float: left">
+                <p><em>Files Submitted</em></p>
+                <ul>
+                    
+                </ul>
+                
+            <div id="data" style="transform: translate(450px, -40px) ">
+                <p><em>Data Sources</em></p>
+                <ul>
+                    <li>Data collected from <a href="https://trade.cites.org/#">Cites Database</a> </li>
+                
+                    <li> <a href="https://www.havocscope.com/exotic-animals-for-sale/">Animals for Sale</a> </li>
+                    
+                    <li><a href = "https://www.havocscope.com/illegal-wildlife-trade/">Illegal Trade</a></li>
+                </ul>
+                
+            </div>
+                
+            <div id="relevent" style="transform: translate(950px, -150px) ">
+                
+                <p><em>Relevent Visualization Sources</em></p>
+                
+                <ul>
+                    <li> D3 World Map by <a href="http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f">Micah Stubbs</a> </li>
+                
+                </ul>
+
+            </div>
+                
+            <div id="code-sources" style="transform: translate(1000px,-100px)"></div>
+                <p><em>COde Sources</em></p>
+                
+                <ul>
+                    <li></li>
+                
+                </ul>
+            </div>
+            
         </div>
         
         <script src="https://d3js.org/d3.v4.min.js"></script>
