@@ -639,7 +639,7 @@ d3.select(".BElephant").on("click", function(){
     d3.select("#animalimage").style("transform", "translate(20%,-5%)");
     d3.select("#imageText")
        .text("Elephant")
-       .style("transform", "translate(10%, -1450%)")
+       .style("transform", "translate(10%, -1250%)")
        .style("font-weight", "bold")
        .style("color", "grey")
     d3.select("#CostParts")
