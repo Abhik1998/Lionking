@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+
+            * {
+                box-sizing: border-box;
+                font-family: sans-serif;
+            }
+
+            /* Create three columns that floats next to each other */
+            .columnAnimal {
+                float: left;
+                width: 10%;
+                height: 500px;
+                padding: 10px;
+                padding-left: 0px;
+                transform: translate(0%,-7%);
+
+            }
+
+            .columnParts {
+                float: left;
+                width: 35%;
+                height: 500px;
+                padding: 10px;
+                padding-left: 20px;
+            }
+
+            .columnMap {
+                float: left;
+                width: 55%;
+                height: 650px;
+                padding: 10px;
+                transform: translate(0px,-70px);
+            }
+
+            .columnFooter {
+                float: left;
+                width: 25%;
+                padding: 10px;
+                padding-left: 10px;
+                height: 40%;
+                line-height: 30px;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            /*Defining buttons with images*/
+            .button {
+                background-color: white; /* This is whitesmoke so as to mask the artefacts around the buttons */
+                border: none;
+                color: white;
+                padding: 0px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 50%;
+                align-content: center;
+                padding-bottom: 10px;
+                padding-left: 10%;
+            }
+
+            /* Defining buttons to toggle map */
+            .Map-Toggler{
+                background-color: white; /* This is whitesmoke so as to mask the artefacts around the buttons */
+                border: #D81E05 1px solid;
+                color: #D81E05;
+                padding: 0px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin-left: 10px;
+                margin-right: 10px;
+                cursor: pointer;
+                align-content: center;
+                width: 100px;
+                padding-bottom: 10px;
+                padding-left: 10px;
+                padding-top:10px;
+                padding-right: 10px;
+                opacity: 0.8;
+                border-radius: 20px;
+                transform: translate(212.5%,-60%);
+            }
+
+            .Map-Toggler:hover {
+                background-color: whitesmoke;
+                opacity: 1;
+            }
+
+            .Map-Toggler:active {
+              background-color: whitemoke;
+              border: #D81E05 1px solid;
+              box-shadow: 0 5px #666;
+              opacity: 1;
+              transform: translate(212.5%,-60%) translateY(1px);
+            }
+
+            /*Defining the Map SVG*/
+            .Map-Container{
+                width: 100%;
+                height: 540px;
+            }
+
+            .map{
+                transform: translate(-18%,-2%);
+            }
+
+            img {
+
+                text-align: center;
+            }
+
+            .rounded{
+                border-radius: 50%;
+            }
+
+            button:focus,img:focus{
+                outline: none;
+                border:none;
+            }
+
+            /*Main titles*/
+            h1 {
+                text-align: center;
+            }
+
+            h2 {
+                padding-bottom: 10px;
+                text-align: center;
+            }
+
+            /*Default background*/
+            body {
+                background-color: white;
+            }
+
+            /*Adding overlay effects for the buttons*/
+            .image-container {
+                position: relative;
+            }
+
+            .image-container .after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 99%;
+                display: none;
+                color: #FFF;
+                border-style: solid;
+            }
+
+            .image-container:hover .after {
+                display: block;
+                background: rgba(0, 0, 0, .6);
+                border-radius: 50%;
+                border: 2px solid;
+                border-color: #D81E05;
+            }
+
+            .names {
+                fill: none;
+                stroke: #fff;
+                stroke-linejoin: round;
+            }
+
+            /* Tooltip CSS */
+            .d3-tip {
+                line-height: 1.5;
+                font-weight: 400;
+                font-family:"avenir next", Arial, sans-serif;
+                padding: 6px;
+                background-color: whitesmoke;
+                /*background: rgba(255, 255, 255, 0.6);*/
+                color: black;
+                border-radius: 1px;
+                pointer-events: none;
+                border: 1px solid darkgrey;
+
+            }
+
+            /* Creates a small triangle extender for the tooltip */
+            .d3-tip:after {
+                box-sizing: border-box;
+                display: inline;
+                font-size: 8px;
+                width: 100%;
+                line-height: 1.5;
+                color: #D81E05;
+                position: absolute;
+                pointer-events: none;
+            }
+
+            /* Northward tooltips */
+            .d3-tip.n:after {
+                content: "\25BC";
+                margin: -1px 0 0 0;
+                top: 100%;
+                left: 0;
+                text-align: center;
+            }
+
+            /* Eastward tooltips */
+            .d3-tip.e:after {
+                content: "\25C0";
+                margin: -4px 0 0 0;
+                top: 50%;
+                left: -9px;
+            }
+
+            /* Southward tooltips */
+            .d3-tip.s:after {
+                content: "\25B2";
+                margin: 0 0 1px 0;
+                top: -8px;
+                left: 0;
+                text-align: center;
+            }
+
+            /* Westward tooltips */
+            .d3-tip.w:after {
+                content: "\25B6";
+                margin: -4px 0 0 -1px;
+                top: 50%;
+                left: 102%;
+            }
+
+            /*This is for text in tooltip*/
+            .details{
+                color:black;
+            }
+
+            .details-country{
+                display: block;
+                text-align: center;
+            }
+
+            /* For annotations and other elements - Annotations for human parts */
+            .annotation path {
+              stroke: #D81E05;
+              fill: none;
+            }
+
+            .annotation path.connector-arrow,
+            .annotation.callout.circle .annotation-subject path{
+
+                fill: #D81E05;
+
+            }
+
+            .title text, .annotation text{
+              font-size: 10px;
+              fill: black;
+            }
+
+            .annotation-note-bg {
+              fill: rgba(255, 255, 255, 0);
+            }
+
+            .annotation-note-title {
+              font-weight: bold;
+            }
+
+            .hidden {
+              display: none;
+            }
+
+            .imghidden {
+                opacity: 0;
+            }
+
+            text.hover {
+              font-size: .7em;
+            }
+
+            text.title {
+
+            }
+
+            .subject{
+
+                cursor: pointer;
+                fill-opacity: 1;
+
+            }
+
+            /*Legend Stuff*/
+            .label{
+                font-size: 10px;
+                transform: translate(30px,30px) rotate(-45deg);
+                fill: #757a82;
+            }
+
+            .legendTitle{
+                font-weight: bold;
+                transform: translate(0px,0px);
+                fill: #757a82;
+                font-size: 12px;
+            }
+
+            #mapheader{
+                color: #757a82;
+                transform: translate(0px, 20px);
+            }
+
+            #ending{
+                height:400px;
+                height:auto;
+                min-height:330px;
+                margin:0 auto;
+
+
+                width:100%;
+                background-color:rgb(241,241,241);
+                border-bottom-right-radius:2em;
+                border-bottom-left-radius:2em;
+                border-top-left-radius:2em;
+                border-top-right-radius:2em;
+
+                font-size: 16px;
+                font-family: sans-serif;
+                line-height: 70%;
+
+            }
+
+            #endingtext{
+                padding: 10px;
+                width:1000px;
+                margin:0 auto;
+                text-align:center;
+            }
+
+            #References{
+                margin:0px 80px 0px 80px;
+            }
+
+
+            #last{
+                margin:auto;
+                width:80%;
+                padding-top: 2px;
+                font-family: sans-serif;
+                line-height: 20px;
+            }
+
+            #code-sources{
+                width: 25%;
+                /*transform: translate(1000px, -100px)*/
+            }
+
+            #submitted{
+                width: 25%;
+            }
+
+            #data{
+                width: 25%;
+            }
+
+            #relevent{
+                width: 25%
+            }
+
+            .footer{
+                margin-top: 20px;
+                transform: translate(0%,20%);
+            }
+
+            #CostParts{
+              transform: translate(10%, 150%);
+              line-height: 70%;
+            }
+            #BiggestImporter{
+              transform: translate(10%, 150%);
+              line-height:70%;
+            }
+            #CountryOrigin{
+              transform: translate(10%, 150%);
+              line-height: 70%;
+            }
+            #BiggestExporter{
+              transform: translate(10%, 150%);
+              line-height: 70%;
+            }
+
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <h1 style = "transform: translate(0px, -15px)">Illegal Wildlife Trade, 2016</h1>
+
+        <div class = "row">
+
+            <div class = "columnAnimal">
+
+                <h2></h2>
+                <button class = "button BTiger">
+
+                    <div class="image-container">
+                        <img class="rounded" src="images/tigericon.png"/>
+                        <div class="after"><p style="transform: translate(0,100%)">Tiger</p></div>
+                        <div class="after"><p style="transform: translate(0,100%)">Tiger</p></div>
+                    </div>
+
+                </button>
+
+                <button class = "button BElephant">
+
+                    <div class ="image-container">
+                        <img class="rounded" src="images/elephanticon.png"/>
+                        <div class="after"><p style="transform: translate(0,100%)">Elephant</p></div>
+                    </div>
+
+                </button>
+
+                <button class = "button BRhino">
+
+                    <div class ="image-container">
+                        <img class="rounded" src="images/rhinoicon.png"/>
+                        <div class="after"><p style="transform: translate(0,100%)">Rhino</p></div>
+                    </div>
+
+                </button>
+
+                <button class = "button BParrot">
+
+                    <div class="image-container">
+                        <img class="rounded" src="images/greyparroticon.png"/>
+                        <div class="after"><p style="transform: translate(0,100%)">Grey Parrot</p></div>
+                    </div>
+
+                </button>
+
+            </div>
+            <div class="columnParts">
+
+                <h2></h2>
+                <div id="image">
+                    <img id="animalimage" style ="position: relative; transform: translate(10%,10%); opacity: 0.6" src="images/tiger.png"/>
+                    <!img class = "Elephant imghidden" style ="position: relative; transform: translate(10%,-60%)" src="images/elephant.png"/>
+                    <!img class = "Rhino imghidden" style ="position: relative; transform: translate(15%, -200%)" src="images/rhino.png"/>
+                    <!img class = "Parrot imghidden" style ="position: relative; transform: translate(30%, -350%)" src="images/greyparrot.png"/>
+
+                    <h2 id="imageText"></h2>
+                    <h3 id= "CostParts"></h3>
+                    <h3 id= "BiggestImporter"></h3>
+                    <h3 id= "CountryOrigin"></h3>
+                    <h3 id= "BiggestExporter"></h3>
+
+                </div>
+                <svg style="width: 450px; height: 540px; position: relative; transform: translate(10%,-115%)"></svg>
+
+            </div>
+            <div class="columnMap">
+
+                <h2 id="mapheader">Origin of Tiger Bone Products</h2>
+                <svg class = "Map-Container" style = "height: 341px"></svg>
+                <svg class = "Map-Legend" style = "width: 100%; height:150px; transform: translate(5%,0%)"></svg>
+                <div style="width: 100%; height: 10%">
+
+                    <button class="Map-Toggler Origin">Origin</button>
+                    <button class="Map-Toggler Importers">Importers</button>
+                    <button class="Map-Toggler Exporters">Exporters</button>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id ="ending" class="footer">
+
+            <div id = "endingtext">
+
+                <p><b>Created by: </b>Karthik Balakrishna, Ishaan Paranjape, Pranav Yerabati</p>
+                <p><b>In Collaboration with </b>Professor Suresh Lodha</p>
+                <p><b>For:</b> CMPS 263, Winter 18</p>
+
+            </div>
+
+            <div class="columnFooter">
+
+                <p><em>Files Submitted</em></p>
+                    <ul>
+                        <li>index.html </li>
+
+                        <li> index.js</li>
+
+                        <li> CSV Files </li>
+                        
+                        <li> Pictures </li>
+                    </ul>
+
+            </div>
+            <div class="columnFooter">
+
+                <p><em>Data Sources</em></p>
+                    <ul>
+                        <li>Data collected from <a href="https://trade.cites.org/#">Cites Database</a></li>
+
+                        <li> <a href="https://www.havocscope.com/exotic-animals-for-sale/">Animals for Sale</a> </li>
+
+                        <li><a href = "https://www.havocscope.com/illegal-wildlife-trade/">Illegal Trade</a></li>
+                    </ul>
+
+            </div>
+            <div class="columnFooter">
+
+                <p><em>Relevant Visualisations</em></p>
+                    <ul>
+                        
+                        
+                        <li> Nat Geo <a href="https://news.nationalgeographic.com/2015/06/150615-data-points-infographic-animal-trade/">Viz.</a> </li>
+                        
+                        
+                    </ul>
+
+            </div>
+            <div class="columnFooter">
+
+                <p><em>Code Sources</em></p>
+                    <ul
+                        <li> D3 World Map by <a href="http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f">Micah Stubbs</a> </li>
+            
+                        <li>D3 Legend By <a href="http://d3-legend.susielu.com/"> Susie Lu</a></li>
+            
+                        <li> D3 Annotations By <a href="http://d3-annotation.susielu.com/"></a>  </li>
+                        
+                    </ul>
+
+            </div>
+
+        </div>
+
+        
+
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://d3js.org/queue.v1.min.js"></script>
+        <script src="https://d3js.org/topojson.v1.min.js"></script>
+        <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+        <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.5/d3-legend.min.js"></script>
+        <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+        <script src="d3-tip.js"></script>
+        <script src="index.js"></script>
+
+</body>
+</html>
