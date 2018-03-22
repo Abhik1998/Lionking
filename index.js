@@ -38,7 +38,7 @@ var tip = d3.tip()
             return "<strong></strong><span class='details-country' style='text-align: center'>" + d.properties.name + "<br></span>"
         }
         else{
-            return "<strong></strong><span class='details-country'>" + d.properties.name + "<br></span>" + "<strong>Total: </strong><span class='details'>" + format(Math.floor(d.population)) +"</span>";
+            return "<strong></strong><span class='details-country'>" + d.properties.name + "<br></span>" + "<strong>Total: </strong><span class='details'>" + format(Math.floor(d.population)) +" specimens</span>";
         }
 
     });
@@ -126,7 +126,7 @@ const annotationsTiger = [
     radius: 7
   },
   x: 90,
-  y: 445,
+  y: 355,
   dy: 30,
   dx: 40
 },
@@ -142,7 +142,7 @@ const annotationsTiger = [
     radius: 7
   },
   x: 360,
-  y: 390,
+  y: 300,
   dy: 50,
   dx: -50
 },
@@ -158,8 +158,8 @@ const annotationsTiger = [
     radius: 7
   },
   x: 360,
-  y: 340,
-  dy: -100,
+  y: 250,
+  dy: 100,
   dx: -100
 },
 {
@@ -174,7 +174,7 @@ const annotationsTiger = [
     radius: 7
   },
   x: 230,
-  y: 320,
+  y: 230,
   dy: -100,
   dx: -100
 },
@@ -190,8 +190,8 @@ const annotationsTiger = [
     radius: 7
   },
   x: 150,
-  y: 340,
-  dy: -100,
+  y: 250,
+  dy: 100,
   dx: 100
 }].map(function(d){ d.color = "#D81E05"; return d});
 
@@ -208,7 +208,7 @@ const annotationsElephant = [
     radius: 7
   },
   x: 300,
-  y: 255,
+  y: 165,
   dy: -50,
   dx: 50
 },
@@ -224,25 +224,9 @@ const annotationsElephant = [
     radius: 7
   },
   x: 150,
-  y: 395,
+  y: 305,
   dy: 50,
   dx: -50
-},
-{
-  type: d3.annotationCalloutCircle,
-  note: {
-    label: "Elephant skin is used to make a variety of products such as wallets covers etc",
-    title: "SKIN",
-    wrap: 100
-  },
-  //settings for the subject, in this case the circle radius
-  subject: {
-    radius: 7
-  },
-  x: 110,
-  y: 170,
-  dy: -80,
-  dx: 80
 },
 {
   type: d3.annotationCalloutCircle,
@@ -256,7 +240,7 @@ const annotationsElephant = [
     radius: 7
   },
   x: 320,
-  y: 355,
+  y: 265,
   dy: 30,
   dx: 30
 },
@@ -275,7 +259,7 @@ const annotationsRhino = [
     radius: 7
   },
   x: 330,
-  y: 330,
+  y: 240,
   dy: 40,
   dx: 40
 },
@@ -291,9 +275,9 @@ const annotationsRhino = [
     radius: 7
   },
   x: 213,
-  y: 245,
-  dy: -30,
-  dx: -30
+  y: 155,
+  dy: -10,
+  dx: 30
 },
 {
   type: d3.annotationCalloutCircle,
@@ -307,7 +291,7 @@ const annotationsRhino = [
     radius: 7
   },
   x: 250,
-  y: 510,
+  y: 420,
   dy: -20,
   dx: 20
 },
@@ -322,10 +306,10 @@ const annotationsRhino = [
   subject: {
     radius: 7
   },
-  x: 113,
-  y: 290,
-  dy: -80,
-  dx: 80
+  x: 153,
+  y: 190,
+  dy: -30,
+  dx: -30
 },
 ].map(function(d){ d.color = "#D81E05"; return d});
 
@@ -342,8 +326,8 @@ const annotationsGreyParrot = [
     radius: 7
   },
   x: 240,
-  y: 330,
-  dy: -50,
+  y: 240,
+  dy: 50,
   dx: 50
 },
 {
@@ -358,7 +342,7 @@ const annotationsGreyParrot = [
     radius: 7
   },
   x: 200,
-  y: 400,
+  y: 310,
   dy: -50,
   dx: -50
 },
@@ -380,13 +364,26 @@ d3.select("svg")
 
 d3.select(".annotationTiger").selectAll("g.annotation-connector, g.annotation-note, g.annotations.callout.circle").classed("hidden", true);
 d3.select("#imageText")
-   .text("Tiger")
-   .style("transform", "translate(10%, 65%)")
-   .style("font-weight", "bold");
-d3.select("#imageText1")
-   .text("Parts Traded The Most")
-   .style("transform", "translate(40%, 65%)")
-   .style("font-weight", "bold");
+   .text("Siberian Tiger")
+   .style("transform", "translate(10%, -1000%)")
+   .style("font-weight", "bold")
+   .style("color", "grey");
+d3.select("#CostParts")
+         .text("Cost of Tiger Bone is $2000 per kilo ")
+         .style("transform", "translate(20%, -45%)")
+         .style("color", "grey");
+d3.select("#BiggestImporter")
+         .text("Biggest Importers of Tiger parts is United States")
+         .style("transform", "translate(20%, -45%)")
+         .style("color", "grey");
+d3.select("#CountryOrigin")
+         .text("Country of Origin is Russia")
+         .style("transform", "translate(20%, -45%)")
+         .style("color", "grey");
+d3.select("#BiggestExporter")
+         .text("Biggest Exporter of products is South East Asia")
+         .style("transform", "translate(20%, -45%)")
+         .style("color", "grey");
 
 const makeAnnotationsElephant = d3.annotation()
     .type(d3.annotationLabel)
@@ -588,13 +585,25 @@ d3.select(".BTiger").on("click", function(){
     d3.select(".annotationRhino").classed("hidden", true);
     d3.select("#animalimage").style("transform", "translate(10%,10%)");
     d3.select("#imageText")
-       .text("Tiger")
-       .style("transform", "translate(10%, 65%)")
+       .text("Siberian Tiger")
+       .style("transform", "translate(10%, -1000%)")
        .style("font-weight", "bold");
-    d3.select("#imageText1")
-       .text("Parts Traded The Most")
-       .style("transform", "translate(40%, 65%)")
-       .style("font-weight", "bold");
+    d3.select("#CostParts")
+          .text("Cost of Tiger Bone is $2000 per kilo ")
+          .style("transform", "translate(20%, -45%)")
+          .style("color", "grey");
+    d3.select("#BiggestImporter")
+          .text("Biggest Importers of Tiger parts is United States")
+          .style("transform", "translate(20%, -45%)")
+          .style("color", "grey");
+    d3.select("#CountryOrigin")
+          .text("Country of Origin is Russia")
+          .style("transform", "translate(20%, -45%)")
+          .style("color", "grey");
+    d3.select("#BiggestExporter")
+          .text("Biggest Exporter of products is South East Asia")
+          .style("transform", "translate(20%, -45%)")
+          .style("color", "grey");
     queue()
        .defer(d3.json, "world_map.json")
        .defer(d3.csv, "csvFiles/Animals/origin/tiger_origin_2016.csv")
@@ -630,12 +639,25 @@ d3.select(".BElephant").on("click", function(){
     d3.select("#animalimage").style("transform", "translate(20%,-5%)");
     d3.select("#imageText")
        .text("Elephant")
-       .style("transform", "translate(10%, -5%)")
-       .style("font-weight", "bold");
-    d3.select("#imageText1")
-       .text("Parts Traded The Most")
-       .style("transform", "translate(40%, -5%)")
-       .style("font-weight", "bold");
+       .style("transform", "translate(10%, -1450%)")
+       .style("font-weight", "bold")
+       .style("color", "grey")
+    d3.select("#CostParts")
+       .text("Ivory cost of China is $2100 per kilo ")
+       .style("transform", "translate(20%, -45%)")
+       .style("color", "grey");
+    d3.select("#BiggestImporter")
+       .text("Biggest Importers of Ivory is United States")
+       .style("transform", "translate(20%, -45%)")
+       .style("color", "grey");
+    d3.select("#CountryOrigin")
+       .text("Country of Origin is Dem. Congo")
+       .style("transform", "translate(20%, -45%)")
+       .style("color", "grey");
+    d3.select("#BiggestExporter")
+       .text("UK is the largest seller of ivory products")
+       .style("transform", "translate(20%, -45%)")
+       .style("color", "grey");
     queue()
        .defer(d3.json, "world_map.json")
        .defer(d3.csv, "csvFiles/Animals/origin/elephant_origin_2016.csv")
@@ -666,13 +688,30 @@ d3.select(".BRhino").on("click", function(){
     d3.select(".annotationRhino").selectAll("g.annotation-connector, g.annotation-note").classed("hidden", true);
     d3.select("#animalimage").style("transform", "translate(20%,10%)");
     d3.select("#imageText")
-       .text("Rhino")
+       .text("Northern White Rhino")
        .style("transform", "translate(10%, 75%)")
        .style("font-weight", "bold");
-    d3.select("#imageText1")
-       .text("Parts Traded The Most")
-       .style("transform", "translate(40%, 75%)")
-       .style("font-weight", "bold");
+    d3.select("#imageText")
+          .text("Rhino")
+          .style("transform", "translate(10%, -1100%)")
+          .style("font-weight", "bold")
+          .style("color", "grey");
+    d3.select("#CostParts")
+                .text("Cost of Rhino Horn is $65000 per kilo ")
+                .style("transform", "translate(20%, -45%)")
+                .style("color", "grey");
+    d3.select("#BiggestImporter")
+                .text("Biggest Importers of Rhino parts is South Africa")
+                .style("transform", "translate(20%, -45%)")
+                .style("color", "grey");
+    d3.select("#CountryOrigin")
+                .text("Country of Origin is Kenya")
+                .style("transform", "translate(20%, -45%)")
+                .style("color", "grey");
+    d3.select("#BiggestExporter")
+                .text("Biggest Exporter of products is Namibia")
+                .style("transform", "translate(20%, -45%)")
+                .style("color", "grey");
 
 
 
@@ -708,14 +747,25 @@ d3.select(".BParrot").on("click", function(){
     d3.select(".annotationGreyParrot").selectAll("g.annotation-connector, g.annotation-note").classed("hidden", true);
     d3.select("#animalimage").style("transform", "translate(50%,10%)");
     d3.select("#imageText")
-       .text("Grey Parrot")
-       .style("transform", "translate(10%, 75%)")
+       .text("African Grey Parrot")
+       .style("transform", "translate(10%, -1000%)")
        .style("font-weight", "bold");
-    d3.select("#imageText1")
-       .text("Parts Traded The Most")
-       .style("transform", "translate(40%, 75%)")
-       .style("font-weight", "bold");
-
+    d3.select("#CostParts")
+                   .text("Cost of African Grey Parrot is $2000 per bird ")
+                   .style("transform", "translate(20%, -45%)")
+                   .style("color", "grey");
+    d3.select("#BiggestImporter")
+                   .text("Biggest Importers of Grey Parrot is South Africa")
+                   .style("transform", "translate(20%, -45%)")
+                   .style("color", "grey");
+    d3.select("#CountryOrigin")
+                   .text("Country of Origin is Dem. Republic of Congo")
+                   .style("transform", "translate(20%, -45%)")
+                   .style("color", "grey");
+    d3.select("#BiggestExporter")
+                   .text("Biggest Exporter of Grey Parrot is South Africa")
+                   .style("transform", "translate(20%, -45%)")
+                   .style("color", "grey");
 
 
 
